@@ -405,5 +405,7 @@ void MainWindow::contacter_nous(){
 void MainWindow::a_propos() {
     QMessageBox::information(this,tr("A propos"),tr("logiciel de chiffrement utilisant <br>le chiffre de Vernam sous licence libre<br><br>")
                              +tr("Fait par :")+ " <br><B>BEMMO MBOBDA FULBERT ALEXANDRE<br>"
-                             +"DNJOMOU TOMBA WILFRIED LOIC<br></B>");
+                             +"DNJOMOU YOMBA WILFRIED LOIC<br>"
+                             +"TONBA DJIMGOU BRAILAIN LOIC<br>"
+                             +"</B>");
 }
