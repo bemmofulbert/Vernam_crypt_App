@@ -53,7 +53,8 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
     connect(ui->ptex_mes,SIGNAL(textChanged()),this,SLOT(limit_mes()));
     connect(ui->ptex_key,SIGNAL(textChanged()),this,SLOT(limit_key()));
         //traitement
-    connect(ui->but_traitement,SIGNAL(clicked()),this,SLOT(traitement()));
+    connect(ui->but_chiff,SIGNAL(clicked()),this,SLOT(traitement()));
+    connect(ui->but_deChiff,SIGNAL(clicked()),this,SLOT(traitement()));
     connect(ui->actionChiffrer_deChiffrer,SIGNAL(triggered()),this,SLOT(traitement()));
         // generation de cle
     connect(ui->but_genKey,SIGNAL(clicked()),this,SLOT(genCle()));
@@ -157,6 +158,7 @@ void MainWindow::limit_mes() {
     update_statusBar();
 }
 void MainWindow::initGraphic() {
+    ui->but_deChiff->hide();
     ui->rad_chif->setStyleSheet("color:green;border:1px solid green;font-weight:bold");
     initIcon();
 }
@@ -175,13 +177,13 @@ void MainWindow::initIcon() {
 void MainWindow::setGraphic_dechif() {
     ui->lab_mes->setText(lab_mes_chif);
     ui->lab_result->setText(lab_result_chif);
-    ui->but_traitement->setText(but_trait_chif);
     ui->but_genKey->hide();
+    ui->but_chiff->hide();
+    ui->but_deChiff->show();
     ui->actionDeChiffrement->setIcon(QIcon(QPixmap("Close_oojs.png")));
     ui->actionChiffrement->setIcon(QIcon());
     ui->rad_dechif->toggle();
     ui->rad_chif->setStyleSheet("");ui->rad_dechif->setStyleSheet("color:green;border:1px solid green;font-weight:bold");
-    ui->but_traitement->setIcon(QIcon::fromTheme("accessories-calculator"));
     limit_mes();
     ui->retranslateUi(this);
 }
@@ -189,13 +191,13 @@ void MainWindow::setGraphic_dechif() {
 void MainWindow::setGraphic_chif() {
     ui->lab_mes->setText(lab_mes_clear);
     ui->lab_result->setText(lab_result_clear);
-    ui->but_traitement->setText(but_trait_clear);
     ui->but_genKey->show();
+    ui->but_chiff->show();
+    ui->but_deChiff->hide();
     ui->actionDeChiffrement->setIcon(QIcon());
     ui->actionChiffrement->setIcon(QIcon(QPixmap("Close_oojs.png")));
     ui->rad_chif->toggle();
     ui->rad_chif->setStyleSheet("color:green;border:1px solid green;font-weight:bold");ui->rad_dechif->setStyleSheet("");
-    ui->but_traitement->setIcon(QIcon::fromTheme("system-lock-screen"));
     ui->retranslateUi(this);
 }
 

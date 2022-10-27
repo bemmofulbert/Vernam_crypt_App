@@ -218,47 +218,47 @@
         <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="334"/>
+        <location filename="../mainwindow.cpp" line="336"/>
         <source>erreur de generation</source>
         <translation>erreur de generation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="371"/>
+        <location filename="../mainwindow.cpp" line="379"/>
         <source>message: </source>
         <translation>message: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="381"/>
         <source> caracteres | Cle: </source>
         <translation> caracteres | Cle: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="375"/>
+        <location filename="../mainwindow.cpp" line="383"/>
         <source> caracteres</source>
         <translation> caracteres</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="388"/>
+        <location filename="../mainwindow.cpp" line="396"/>
         <source>quitter ?</source>
         <translation>quitter ?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>contact</source>
         <translation>contact</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="406"/>
         <source>A propos</source>
         <translation>A propos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="406"/>
         <source>logiciel de chiffrement utilisant &lt;br&gt;le chiffre de Vernam sous licence libre&lt;br&gt;&lt;br&gt;</source>
         <translation>Logiciel de chiffrement utilisant &lt;br&gt;le chiffre de Vernam sous licence libre&lt;br&gt;base sur Qt&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="407"/>
         <source>Fait par :</source>
         <translation>Fait par :</translation>
     </message>
@@ -295,13 +295,13 @@
         <translation>Resultat du Dechiffrement :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="72"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>DeChiffrer</source>
         <translation>DeChiffrer</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="614"/>
-        <location filename="../mainwindow.h" line="73"/>
+        <location filename="../mainwindow.cpp" line="192"/>
         <source>Chiffrer</source>
         <translation>Chiffrer</translation>
     </message>
@@ -335,12 +335,12 @@ et les chiffres, les chiffres</translation>
         <translation>S&apos;il vous plait Taper du texte a chiffrer puis la cle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="79"/>
+        <location filename="../mainwindow.cpp" line="396"/>
         <source>&lt;center&gt;Etes vous sur de vouloir quitter l&apos;application&lt;/center&gt;</source>
         <translation>&lt;center&gt;Etes vous sur de vouloir quitter l&apos;application&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="80"/>
+        <location filename="../mainwindow.h" line="79"/>
         <source>Contacter nous a l&apos;adresse mail
 fbemmo.megasoft@gmail.com</source>
         <translation>Contacter nous a l&apos;adresse mail

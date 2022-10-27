@@ -69,8 +69,8 @@ private:
     QString lab_mes_chif = tr("Message Chiffre :");
     QString lab_result_clear = tr("Resultat du Chiffrement :");
     QString lab_result_chif = tr("Resultat du Dechiffrement :");
-    QString but_trait_chif = tr("DeChiffrer");
-    QString but_trait_clear = tr("Chiffrer");
+    //QString but_trait_chif = tr("DeChiffrer");
+    //QString but_trait_clear = tr("Chiffrer");
     QString text_char_letter = tr("le prochain caractere doit etre une lettre");
     QString text_char_number = tr("le prochain caractere doit etre un chiffre");
     QString text_key_correct = tr("la cle respecte les normes");

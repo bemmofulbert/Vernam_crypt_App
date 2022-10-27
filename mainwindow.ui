@@ -587,69 +587,86 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <property name="topMargin">
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="but_traitement">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="topMargin">
+         <number>0</number>
         </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string>Traiter le texte</string>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">:hover{background-color:green}</string>
-        </property>
-        <property name="text">
-         <string>Chiffrer</string>
-        </property>
-        <property name="icon">
-         <iconset theme="system-lock-screen">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
-       </widget>
+        <item>
+         <widget class="QPushButton" name="but_chiff">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Traiter le texte</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">:hover{background-color:green}</string>
+          </property>
+          <property name="text">
+           <string>Chiffrer</string>
+          </property>
+          <property name="icon">
+           <iconset theme="system-lock-screen">
+            <normaloff>.</normaloff>.</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="but_genKey">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>générer une clé aleatoire de meme longueur que votre message a chiffrer</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">:hover{background-color:green}</string>
+          </property>
+          <property name="text">
+           <string>générer une clé aleatoire</string>
+          </property>
+          <property name="icon">
+           <iconset theme="system-help">
+            <normaloff>.</normaloff>.</iconset>
+          </property>
+          <property name="autoRepeat">
+           <bool>false</bool>
+          </property>
+          <property name="autoExclusive">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QPushButton" name="but_genKey">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string>générer une clé aleatoire de meme longueur que votre message a chiffrer</string>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">:hover{background-color:green}</string>
-        </property>
+       <widget class="QPushButton" name="but_deChiff">
         <property name="text">
-         <string>générer une clé aleatoire</string>
+         <string>DeChiffrer</string>
         </property>
         <property name="icon">
-         <iconset theme="system-help">
-          <normaloff>.</normaloff>.</iconset>
-        </property>
-        <property name="autoRepeat">
-         <bool>false</bool>
-        </property>
-        <property name="autoExclusive">
-         <bool>false</bool>
+         <iconset theme="accessories-calculator"/>
         </property>
        </widget>
       </item>
