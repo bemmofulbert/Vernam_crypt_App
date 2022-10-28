@@ -61,6 +61,10 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
         //historique
     connect(ui->tbut_history,SIGNAL(clicked()),this,SLOT(montrer_historique()));
     connect(ui->actionHistorique_des_Cl_s,SIGNAL(triggered()),this,SLOT(montrer_historique()));
+        //import export
+            //open
+    connect(ui->but_openMes,SIGNAL(clicked()),this,SLOT(openMes_fromFile()));
+    connect(ui->but_openKey,SIGNAL(clicked()),this,SLOT(openKey_fromFile()));
         //menu aide
             //contactez nous
     connect(ui->actionContactez_nous,SIGNAL(triggered()),this,SLOT(contacter_nous()));
@@ -113,12 +117,14 @@ void MainWindow::limit_key() {
         len=text.size();
     }
     key_exist(text);
+    QPoint cursorPosition = ui->ptex_key->cursor().pos();
     disconnect(ui->ptex_key,SIGNAL(textChanged()),this,SLOT(limit_key()));
 
     ui->ptex_key->clear();
     ui->ptex_key->appendPlainText(text);
 
     connect(ui->ptex_key,SIGNAL(textChanged()),this,SLOT(limit_key()));
+    ui->ptex_key->cursor().setPos(cursorPosition);
     update_statusBar();
 }
 
@@ -307,8 +313,12 @@ void MainWindow::decrypter(){
 }
 
 void MainWindow::traitement() {
+    App->setOverrideCursor(QCursor(Qt::WaitCursor));
+
     if(ui->rad_chif->isChecked()) crypter();
     else decrypter();
+
+    App->setOverrideCursor(QCursor(Qt::ArrowCursor));
 }
 
 char generateLetter(){
@@ -365,7 +375,35 @@ void MainWindow::lang_en() {
     }
 }
 
+void MainWindow::openMes_fromFile() {
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Ouvrir le fichier contenant le message"),QString(),
+                                 tr("Fichiers Textes(*.txt *.dat)"));
+    QFile file(fileName);
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::critical(this,tr("erreur"),"Un probleme s'est produit\nlors de l'ouverture du fichier");
+        return;
+    }
+    ui->ptex_mes->clear();
+    QTextStream out(&file);
+    while (!out.atEnd()) {
+        ui->ptex_mes->setPlainText(ui->ptex_mes->toPlainText()+out.readLine());
+    }
+}
 
+void MainWindow::openKey_fromFile() {
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Ouvrir le fichier contenant la Cle"),QString(),
+                                 tr("Fichiers Textes(*.txt *.dat)"));
+    QFile file(fileName);
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::critical(this,tr("erreur"),"Un probleme s'est produit\nlors de l'ouverture du fichier");
+        return;
+    }
+    ui->ptex_key->clear();
+    QTextStream out(&file);
+    while (!out.atEnd()) {
+        ui->ptex_key->setPlainText(ui->ptex_key->toPlainText()+out.readLine());
+    }
+}
 
 void MainWindow::zoom_in() {
         ui->ptex_mes->zoomIn(2);

@@ -24,6 +24,9 @@ int main(int argc, char *argv[])
     initLanguage(a);
     MainWindow w(nullptr,&a,translator_fr,translator_en);
     w.show();
+    QPalette palette;
+    palette.setColor(QPalette::Window,QColor(239,239,239));
+    w.setPalette(palette);
     return a.exec();
 
 //    char* texte = (char*)malloc(sizeof(char)*5);

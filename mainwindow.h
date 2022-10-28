@@ -17,6 +17,7 @@ extern "C" {
 #include <QLocale>
 #include <QTranslator>
 #include <QCoreApplication>
+#include <QFileDialog>
 
 #include <history.h>
 
@@ -59,7 +60,8 @@ public slots:
     void dark_mode_for_but();
     void lang_fr();
     void lang_en();
-
+    void openMes_fromFile();
+    void openKey_fromFile();
 private:
     Ui::MainWindow *ui;
     HistoryDialog *hisDial;
