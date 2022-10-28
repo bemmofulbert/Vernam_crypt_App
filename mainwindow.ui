@@ -401,7 +401,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="document-open"/>
+           <iconset theme="document-open">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </widget>
         </item>
@@ -420,7 +421,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="document-save-as"/>
+           <iconset theme="document-save-as">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </widget>
         </item>
@@ -433,6 +435,9 @@
         </property>
         <property name="documentTitle">
          <string notr="true"/>
+        </property>
+        <property name="undoRedoEnabled">
+         <bool>false</bool>
         </property>
         <property name="plainText">
          <string notr="true"/>
@@ -573,7 +578,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="document-open"/>
+           <iconset theme="document-open">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </widget>
         </item>
@@ -592,7 +598,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="document-save-as"/>
+           <iconset theme="document-save-as">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </widget>
         </item>
@@ -606,8 +613,11 @@
         <property name="documentTitle">
          <string notr="true"/>
         </property>
+        <property name="undoRedoEnabled">
+         <bool>false</bool>
+        </property>
         <property name="plainText">
-         <string notr="true"/>
+         <string notr="true">up</string>
         </property>
        </widget>
       </item>
@@ -817,7 +827,8 @@
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="document-save-as"/>
+           <iconset theme="document-save-as">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </widget>
         </item>
@@ -833,6 +844,9 @@
         </property>
         <property name="documentTitle">
          <string notr="true"/>
+        </property>
+        <property name="undoRedoEnabled">
+         <bool>false</bool>
         </property>
         <property name="readOnly">
          <bool>true</bool>

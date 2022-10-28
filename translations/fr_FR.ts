@@ -58,7 +58,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="281"/>
-        <location filename="../mainwindow.ui" line="925"/>
+        <location filename="../mainwindow.ui" line="945"/>
         <source>Mode</source>
         <translation>Mode</translation>
     </message>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="322"/>
-        <location filename="../mainwindow.ui" line="976"/>
+        <location filename="../mainwindow.ui" line="996"/>
         <source>Chiffrement</source>
         <translation>Chiffrement</translation>
     </message>
@@ -85,255 +85,282 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="398"/>
-        <location filename="../mainwindow.ui" line="570"/>
+        <location filename="../mainwindow.ui" line="575"/>
         <source>Ouvrir un fichier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="417"/>
-        <location filename="../mainwindow.ui" line="589"/>
-        <location filename="../mainwindow.ui" line="811"/>
+        <location filename="../mainwindow.ui" line="418"/>
+        <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../mainwindow.ui" line="824"/>
         <source>Enregistrer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="432"/>
+        <location filename="../mainwindow.ui" line="434"/>
         <source>Message a traiter</source>
         <translation>Message a traiter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="465"/>
-        <location filename="../mainwindow.ui" line="634"/>
-        <location filename="../mainwindow.ui" line="868"/>
+        <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../mainwindow.ui" line="644"/>
+        <location filename="../mainwindow.ui" line="885"/>
         <source>Effacer</source>
         <translation>Effacer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="500"/>
-        <location filename="../mainwindow.ui" line="663"/>
-        <location filename="../mainwindow.ui" line="897"/>
+        <location filename="../mainwindow.ui" line="505"/>
+        <location filename="../mainwindow.ui" line="673"/>
+        <location filename="../mainwindow.ui" line="914"/>
         <source>Copier</source>
         <translation>Copier</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="541"/>
+        <location filename="../mainwindow.ui" line="546"/>
         <source>Clé :</source>
         <translation>Clé :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="604"/>
+        <location filename="../mainwindow.ui" line="611"/>
         <source>Cle</source>
         <translation>Clé</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="709"/>
+        <location filename="../mainwindow.ui" line="722"/>
         <source>Traiter le texte</source>
         <translation>Traiter le texte</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="737"/>
+        <location filename="../mainwindow.ui" line="750"/>
         <source>générer une clé aleatoire de meme longueur que votre message a chiffrer</source>
         <translation>générer une clé aleatoire de meme longueur que votre message a chiffrer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="743"/>
+        <location filename="../mainwindow.ui" line="756"/>
         <source>générer une clé aleatoire</source>
         <translation>générer une clé aleatoire</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="826"/>
+        <location filename="../mainwindow.ui" line="840"/>
         <source>Texte Resultat</source>
         <translation>Texte Resultat</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="932"/>
+        <location filename="../mainwindow.ui" line="952"/>
         <source>Aide</source>
         <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="941"/>
+        <location filename="../mainwindow.ui" line="961"/>
         <source>Application</source>
         <translation>Application</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="952"/>
+        <location filename="../mainwindow.ui" line="972"/>
         <source>Affichage</source>
         <translation>Affichage</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="956"/>
+        <location filename="../mainwindow.ui" line="976"/>
         <source>Langue</source>
         <translation>Langue</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="981"/>
+        <location filename="../mainwindow.ui" line="1001"/>
         <source>DeChiffrement</source>
         <translation>DeChiffrement</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="986"/>
+        <location filename="../mainwindow.ui" line="1006"/>
         <source>Contactez nous</source>
         <translation>Contactez nous</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="991"/>
+        <location filename="../mainwindow.ui" line="1011"/>
         <source>Consulter l&apos;aide</source>
         <translation>Consulter l&apos;aide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="996"/>
+        <location filename="../mainwindow.ui" line="1016"/>
         <source>Quitter</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1001"/>
+        <location filename="../mainwindow.ui" line="1021"/>
         <source>Tout effacer</source>
         <translation>Tout effacer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1006"/>
+        <location filename="../mainwindow.ui" line="1026"/>
         <source>Historique des Clés</source>
         <translation>Historique des Clés</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1011"/>
+        <location filename="../mainwindow.ui" line="1031"/>
         <source>Chiffrer/deChiffrer</source>
         <translation>Chiffrer/deChiffrer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1016"/>
+        <location filename="../mainwindow.ui" line="1036"/>
         <source>A Propos</source>
         <translation>A Propos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1024"/>
+        <location filename="../mainwindow.ui" line="1044"/>
         <source>Dark mode</source>
         <translation>mode sombre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1029"/>
+        <location filename="../mainwindow.ui" line="1049"/>
         <source>Zoomer</source>
         <translation>Zoomer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1034"/>
+        <location filename="../mainwindow.ui" line="1054"/>
         <source>Dezoomer</source>
         <translation>Dezoomer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1045"/>
+        <location filename="../mainwindow.ui" line="1065"/>
         <source>Francais</source>
         <translation>Francais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1053"/>
+        <location filename="../mainwindow.ui" line="1073"/>
         <source>Anglais</source>
         <translation>Anglais</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="387"/>
         <source>erreur de generation</source>
         <translation>erreur de generation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="381"/>
+        <location filename="../mainwindow.cpp" line="418"/>
+        <source>Ouvrir le fichier contenant le message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="419"/>
+        <location filename="../mainwindow.cpp" line="434"/>
+        <source>Fichiers Textes(*.txt *.dat)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="422"/>
+        <location filename="../mainwindow.cpp" line="437"/>
+        <source>erreur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="433"/>
+        <source>Ouvrir le fichier contenant la Cle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="463"/>
         <source>message: </source>
         <translation>message: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="383"/>
         <source> caracteres | Cle: </source>
-        <translation> caracteres | Cle: </translation>
+        <translation type="vanished"> caracteres | Cle: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="385"/>
+        <location filename="../mainwindow.cpp" line="463"/>
+        <location filename="../mainwindow.cpp" line="469"/>
         <source> caracteres</source>
         <translation> caracteres</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="398"/>
+        <location filename="../mainwindow.cpp" line="469"/>
+        <source>Cle: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="484"/>
         <source>quitter ?</source>
         <translation>quitter ?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="405"/>
+        <location filename="../mainwindow.cpp" line="491"/>
         <source>contact</source>
         <translation>contact</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="408"/>
+        <location filename="../mainwindow.cpp" line="494"/>
         <source>A propos</source>
         <translation>A propos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="408"/>
+        <location filename="../mainwindow.cpp" line="494"/>
         <source>logiciel de chiffrement utilisant &lt;br&gt;le chiffre de Vernam sous licence libre&lt;br&gt;&lt;br&gt;</source>
         <translation>Logiciel de chiffrement utilisant &lt;br&gt;le chiffre de Vernam sous licence libre&lt;br&gt;base sur Qt&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="409"/>
+        <location filename="../mainwindow.cpp" line="495"/>
         <source>Fait par :</source>
         <translation>Fait par :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="66"/>
+        <location filename="../mainwindow.h" line="68"/>
         <source>la clé doivent avoir au moins le meme nombre de lettre que le message</source>
         <translation>La clé doivent avoir au moins le meme nombre de lettre que le message</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="67"/>
+        <location filename="../mainwindow.h" line="69"/>
         <source>Attention ! cette clé a déjá été utilisé</source>
         <translation>Attention ! cette clé a déjá été utilisé</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="369"/>
-        <location filename="../mainwindow.h" line="68"/>
+        <location filename="../mainwindow.h" line="70"/>
         <source>Message Clair :</source>
         <translation>Message Clair :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="69"/>
+        <location filename="../mainwindow.h" line="71"/>
         <source>Message Chiffre :</source>
         <translation>Message Chiffre :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="782"/>
-        <location filename="../mainwindow.h" line="70"/>
+        <location filename="../mainwindow.ui" line="795"/>
+        <location filename="../mainwindow.h" line="72"/>
         <source>Resultat du Chiffrement :</source>
         <translation>Resultat du Chiffrement :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="71"/>
+        <location filename="../mainwindow.h" line="73"/>
         <source>Resultat du Dechiffrement :</source>
         <translation>Resultat du Dechiffrement :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="762"/>
+        <location filename="../mainwindow.ui" line="775"/>
         <source>DeChiffrer</source>
         <translation>DeChiffrer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="715"/>
+        <location filename="../mainwindow.ui" line="728"/>
         <source>Chiffrer</source>
         <translation>Chiffrer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="74"/>
+        <location filename="../mainwindow.h" line="76"/>
         <source>le prochain caractere doit etre une lettre</source>
         <translation>Le prochain caractere doit etre une lettre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="75"/>
+        <location filename="../mainwindow.h" line="77"/>
         <source>le prochain caractere doit etre un chiffre</source>
         <translation>Le prochain caractere doit etre un chiffre</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="76"/>
+        <location filename="../mainwindow.h" line="78"/>
         <source>la cle respecte les normes</source>
         <translation>La cle respecte les normes</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="77"/>
+        <location filename="../mainwindow.h" line="79"/>
         <source>verifier votre chaine
 que les lettres cryptent les lettres
 et les chiffres, les chiffres</source>
@@ -342,17 +369,17 @@ que les lettres cryptent les lettres
 et les chiffres, les chiffres</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="78"/>
+        <location filename="../mainwindow.h" line="80"/>
         <source>Taper du texte a chiffrer puis la cle</source>
         <translation>S&apos;il vous plait Taper du texte a chiffrer puis la cle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="398"/>
+        <location filename="../mainwindow.cpp" line="484"/>
         <source>&lt;center&gt;Etes vous sur de vouloir quitter l&apos;application&lt;/center&gt;</source>
         <translation>&lt;center&gt;Etes vous sur de vouloir quitter l&apos;application&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="79"/>
+        <location filename="../mainwindow.h" line="81"/>
         <source>Contacter nous a l&apos;adresse mail
 fbemmo.megasoft@gmail.com</source>
         <translation>Contacter nous a l&apos;adresse mail

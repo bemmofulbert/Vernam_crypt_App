@@ -85,18 +85,26 @@ MainWindow::~MainWindow()
 
 void MainWindow::limit_key() {
     QString text = ui->ptex_key->toPlainText();
+    QTextCursor cursor = ui->ptex_key->textCursor();
+    int curPos = cursor.position();
+    bool badCharacter = false;
+    int oldSize = text.size();
+
     ui->lab_avert->hide();
     if(text.isEmpty()) return;
-    text = text.simplified();
+    text = text.simplified().remove(' ');
+    text.squeeze();
     for(int i=0;i<text.size();i++){
         if(!text[i].isLetterOrNumber()) {
             text = text.remove(text[i]);
             text.squeeze();
+            badCharacter = true;
         }
     }
     text = text.toUpper();
 
     QString textClear = ui->ptex_mes->toPlainText().simplified().remove(' ');
+    textClear.squeeze();
     if( !text.isEmpty() && !textClear.isEmpty() && textClear.size()>=text.size() && textClear[text.size()-1].isNumber() && !text[text.size()-1].isNumber()){
         text.remove(text.size()-1,1);
         text.squeeze();
@@ -117,19 +125,32 @@ void MainWindow::limit_key() {
         len=text.size();
     }
     key_exist(text);
-    QPoint cursorPosition = ui->ptex_key->cursor().pos();
     disconnect(ui->ptex_key,SIGNAL(textChanged()),this,SLOT(limit_key()));
 
     ui->ptex_key->clear();
     ui->ptex_key->appendPlainText(text);
 
     connect(ui->ptex_key,SIGNAL(textChanged()),this,SLOT(limit_key()));
-    ui->ptex_key->cursor().setPos(cursorPosition);
+    if(text.size()>=oldSize){
+        if(!badCharacter){
+            if(((curPos-1)>=0 && (curPos-1)<text.size()) && text[curPos-1].isSpace()) cursor.setPosition(curPos+1);
+            else cursor.setPosition(curPos);
+        }else {
+            cursor.setPosition(curPos-1);
+        }
+    }else cursor.setPosition(curPos-1);
+    ui->ptex_key->setTextCursor(cursor);
+
     update_statusBar();
 }
 
 void MainWindow::limit_mes() {
     QString text = ui->ptex_mes->toPlainText();
+    QTextCursor cursor = ui->ptex_mes->textCursor();
+    int curPos = cursor.position();
+    bool badCharacter = false;
+    int oldSize = text.size();
+
     if(text.isEmpty()) return;
 
     if(ui->rad_chif->isChecked()) {
@@ -138,14 +159,16 @@ void MainWindow::limit_mes() {
             else if(!text[i].isLetterOrNumber()) {
                 text = text.remove(text[i]);
                 text.squeeze();
+                badCharacter = true;
             }
         }
     }else {
-        text = text.simplified();
+        text = text.simplified().remove(' ');
         for(int i=0;i<text.size();i++){
             if(!text[i].isLetterOrNumber()) {
                 text = text.remove(text[i]);
                 text.squeeze();
+                badCharacter = true;
             }
         }
         for(int i=4,len=text.size();i<len;i+=5){
@@ -161,6 +184,22 @@ void MainWindow::limit_mes() {
     ui->ptex_mes->appendPlainText(text);
 
     connect(ui->ptex_mes,SIGNAL(textChanged()),this,SLOT(limit_mes()));
+
+    if(ui->rad_chif->isChecked()) {
+
+    }
+    else {
+        if(text.size()>=oldSize){
+            if(!badCharacter){
+                if(((curPos-1)>=0 && (curPos-1)<text.size()) && text[curPos-1].isSpace()) cursor.setPosition(curPos+1);
+                else cursor.setPosition(curPos);
+            }else {
+                cursor.setPosition(curPos-1);
+            }
+        }else cursor.setPosition(curPos-1);
+    }
+    ui->ptex_mes->setTextCursor(cursor);
+
     update_statusBar();
 }
 void MainWindow::initGraphic() {
@@ -416,11 +455,20 @@ void MainWindow::zoom_out() {
         ui->ptex_traite->zoomOut(2);
 }
 void MainWindow::update_statusBar(){
-    this->statusBar()->showMessage(tr("message: ")
-                                   + QString::number(ui->ptex_mes->toPlainText().simplified().remove(' ').size())
-                                   +tr(" caracteres | Cle: ")
-                                   + QString::number(ui->ptex_key->toPlainText().simplified().remove(' ').size())
-                                   +tr(" caracteres"));
+    QString key = ui->ptex_key->toPlainText().simplified().remove(' ');
+    QString mes = ui->ptex_mes->toPlainText().simplified().remove(' ');
+    int keyLen = key.size(), mesLen = mes.size();
+    QString resultMes;
+    if(mesLen > 1){
+        resultMes += tr("message: ") + QString::number(mesLen)+ tr(" caracteres");
+    }
+    if(mesLen > 1 && keyLen > 1) {
+        resultMes += " | ";
+    }
+    if(keyLen > 1){
+        resultMes += tr("Cle: ") + QString::number(keyLen) +tr(" caracteres");
+    }
+    this->statusBar()->showMessage(resultMes);
 }
 void MainWindow::dark_mode() {
     if (ui->actionDark_mode->isChecked()){
