@@ -65,6 +65,10 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
             //open
     connect(ui->but_openMes,SIGNAL(clicked()),this,SLOT(openMes_fromFile()));
     connect(ui->but_openKey,SIGNAL(clicked()),this,SLOT(openKey_fromFile()));
+            //save
+    connect(ui->but_saveMes,SIGNAL(clicked()),this,SLOT(saveMes_toFile()));
+    connect(ui->but_saveKey,SIGNAL(clicked()),this,SLOT(saveKey_toFile()));
+    connect(ui->but_saveTraite,SIGNAL(clicked()),this,SLOT(saveTraite_toFile()));
         //menu aide
             //contactez nous
     connect(ui->actionContactez_nous,SIGNAL(triggered()),this,SLOT(contacter_nous()));
@@ -186,7 +190,13 @@ void MainWindow::limit_mes() {
     connect(ui->ptex_mes,SIGNAL(textChanged()),this,SLOT(limit_mes()));
 
     if(ui->rad_chif->isChecked()) {
-
+        if(text.size()>=oldSize){
+            if(!badCharacter){
+                cursor.setPosition(curPos);
+            }else {
+                cursor.setPosition(curPos-1);
+            }
+        }else cursor.setPosition(curPos-1);
     }
     else {
         if(text.size()>=oldSize){
@@ -417,6 +427,7 @@ void MainWindow::lang_en() {
 void MainWindow::openMes_fromFile() {
     QString fileName = QFileDialog::getOpenFileName(this,tr("Ouvrir le fichier contenant le message"),QString(),
                                  tr("Fichiers Textes(*.txt *.dat)"));
+    if(fileName.isEmpty()) return;
     QFile file(fileName);
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QMessageBox::critical(this,tr("erreur"),"Un probleme s'est produit\nlors de l'ouverture du fichier");
@@ -427,11 +438,13 @@ void MainWindow::openMes_fromFile() {
     while (!out.atEnd()) {
         ui->ptex_mes->setPlainText(ui->ptex_mes->toPlainText()+out.readLine());
     }
+    file.close();
 }
 
 void MainWindow::openKey_fromFile() {
     QString fileName = QFileDialog::getOpenFileName(this,tr("Ouvrir le fichier contenant la Cle"),QString(),
                                  tr("Fichiers Textes(*.txt *.dat)"));
+    if(fileName.isEmpty()) return;
     QFile file(fileName);
     if(!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QMessageBox::critical(this,tr("erreur"),"Un probleme s'est produit\nlors de l'ouverture du fichier");
@@ -442,6 +455,52 @@ void MainWindow::openKey_fromFile() {
     while (!out.atEnd()) {
         ui->ptex_key->setPlainText(ui->ptex_key->toPlainText()+out.readLine());
     }
+    file.close();
+}
+
+void MainWindow::saveMes_toFile() {
+    QString fileName = QFileDialog::getSaveFileName(this,tr("Entrez le nom du fichier de sauvegarde du message"),QString(),
+                                 tr("Fichiers Textes(*.txt *.dat)"));
+    if(fileName.isEmpty()) return;
+    QFile file(fileName);
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::critical(this,tr("erreur"),"Un probleme s'est produit\nlors de lors de l'enregistrement");
+        return;
+    }
+    QTextStream in(&file);
+    in << ui->ptex_mes->toPlainText();
+    in.flush();
+    file.close();
+}
+
+void MainWindow::saveKey_toFile() {
+    QString fileName = QFileDialog::getSaveFileName(this,tr("Entrez le nom du fichier de sauvegarde de la cle"),QString(),
+                                 tr("Fichiers Textes(*.txt *.dat)"));
+    if(fileName.isEmpty()) return;
+    QFile file(fileName);
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::critical(this,tr("erreur"),"Un probleme s'est produit\nlors de lors de l'enregistrement");
+        return;
+    }
+    QTextStream in(&file);
+    in << ui->ptex_key->toPlainText();
+    in.flush();
+    file.close();
+}
+
+void MainWindow::saveTraite_toFile() {
+    QString fileName = QFileDialog::getSaveFileName(this,tr("Entrez le nom du fichier de sauvegarde de la cle"),QString(),
+                                 tr("Fichiers Textes(*.txt *.dat)"));
+    if(fileName.isEmpty()) return;
+    QFile file(fileName);
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::critical(this,tr("erreur"),"Un probleme s'est produit\nlors de lors de l'enregistrement");
+        return;
+    }
+    QTextStream in(&file);
+    in << ui->ptex_traite->toPlainText();
+    in.flush();
+    file.close();
 }
 
 void MainWindow::zoom_in() {

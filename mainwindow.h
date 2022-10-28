@@ -62,6 +62,9 @@ public slots:
     void lang_en();
     void openMes_fromFile();
     void openKey_fromFile();
+    void saveMes_toFile();
+    void saveKey_toFile();
+    void saveTraite_toFile();
 private:
     Ui::MainWindow *ui;
     HistoryDialog *hisDial;

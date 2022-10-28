@@ -592,7 +592,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Enregistrer</string>
+           <string>Enregistrer la Cle</string>
           </property>
           <property name="text">
            <string/>
@@ -617,7 +617,7 @@
          <bool>false</bool>
         </property>
         <property name="plainText">
-         <string notr="true">up</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>

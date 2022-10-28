@@ -91,7 +91,6 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="418"/>
-        <location filename="../mainwindow.ui" line="595"/>
         <location filename="../mainwindow.ui" line="824"/>
         <source>Enregistrer</source>
         <translation type="unfinished"></translation>
@@ -119,6 +118,11 @@
         <location filename="../mainwindow.ui" line="546"/>
         <source>Clé :</source>
         <translation>Key :</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="595"/>
+        <source>Enregistrer la Cle</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="611"/>
@@ -231,34 +235,51 @@
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="387"/>
+        <location filename="../mainwindow.cpp" line="397"/>
         <source>erreur de generation</source>
         <translation>error of generation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="418"/>
+        <location filename="../mainwindow.cpp" line="428"/>
         <source>Ouvrir le fichier contenant le message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="419"/>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="446"/>
+        <location filename="../mainwindow.cpp" line="463"/>
+        <location filename="../mainwindow.cpp" line="478"/>
+        <location filename="../mainwindow.cpp" line="493"/>
         <source>Fichiers Textes(*.txt *.dat)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="422"/>
-        <location filename="../mainwindow.cpp" line="437"/>
+        <location filename="../mainwindow.cpp" line="433"/>
+        <location filename="../mainwindow.cpp" line="450"/>
+        <location filename="../mainwindow.cpp" line="467"/>
+        <location filename="../mainwindow.cpp" line="482"/>
+        <location filename="../mainwindow.cpp" line="497"/>
         <source>erreur</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="433"/>
+        <location filename="../mainwindow.cpp" line="445"/>
         <source>Ouvrir le fichier contenant la Cle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="463"/>
+        <location filename="../mainwindow.cpp" line="462"/>
+        <source>Entrez le nom du fichier de sauvegarde du message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="492"/>
+        <source>Entrez le nom du fichier de sauvegarde de la cle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="522"/>
         <source>message: </source>
         <translation>message: </translation>
     </message>
@@ -267,70 +288,70 @@
         <translation type="vanished"> characters | Key: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="463"/>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="522"/>
+        <location filename="../mainwindow.cpp" line="528"/>
         <source> caracteres</source>
         <translation> characters</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="528"/>
         <source>Cle: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="543"/>
         <source>quitter ?</source>
         <translation>quit ?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="491"/>
+        <location filename="../mainwindow.cpp" line="550"/>
         <source>contact</source>
         <translation>contact</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="494"/>
+        <location filename="../mainwindow.cpp" line="553"/>
         <source>A propos</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="494"/>
+        <location filename="../mainwindow.cpp" line="553"/>
         <source>logiciel de chiffrement utilisant &lt;br&gt;le chiffre de Vernam sous licence libre&lt;br&gt;&lt;br&gt;</source>
         <translation>Encryption software using &lt;br&gt;from Vernam under free license&lt;br&gt;based on Qt&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="495"/>
+        <location filename="../mainwindow.cpp" line="554"/>
         <source>Fait par :</source>
         <translation>made by</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="68"/>
+        <location filename="../mainwindow.h" line="71"/>
         <source>la clé doivent avoir au moins le meme nombre de lettre que le message</source>
         <translation>The key must have at least the same number of letters as the message</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="69"/>
+        <location filename="../mainwindow.h" line="72"/>
         <source>Attention ! cette clé a déjá été utilisé</source>
         <translation>Warning ! this key has been already use</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="369"/>
-        <location filename="../mainwindow.h" line="70"/>
+        <location filename="../mainwindow.h" line="73"/>
         <source>Message Clair :</source>
         <translation>Clear Message :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="71"/>
+        <location filename="../mainwindow.h" line="74"/>
         <source>Message Chiffre :</source>
         <translation>Encrypted Message:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="795"/>
-        <location filename="../mainwindow.h" line="72"/>
+        <location filename="../mainwindow.h" line="75"/>
         <source>Resultat du Chiffrement :</source>
         <translation>Result of Encryption</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="73"/>
+        <location filename="../mainwindow.h" line="76"/>
         <source>Resultat du Dechiffrement :</source>
         <translation>Result of Decryption</translation>
     </message>
@@ -345,22 +366,22 @@
         <translation>encrypt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="76"/>
+        <location filename="../mainwindow.h" line="79"/>
         <source>le prochain caractere doit etre une lettre</source>
         <translation>The next charater must to be a letter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="77"/>
+        <location filename="../mainwindow.h" line="80"/>
         <source>le prochain caractere doit etre un chiffre</source>
         <translation>The next charater must to be a number</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="78"/>
+        <location filename="../mainwindow.h" line="81"/>
         <source>la cle respecte les normes</source>
         <translation>The key respect Standard</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="79"/>
+        <location filename="../mainwindow.h" line="82"/>
         <source>verifier votre chaine
 que les lettres cryptent les lettres
 et les chiffres, les chiffres</source>
@@ -369,17 +390,17 @@ that the letters proccess the letters
 and the numbers, the numbers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="80"/>
+        <location filename="../mainwindow.h" line="83"/>
         <source>Taper du texte a chiffrer puis la cle</source>
         <translation>Edit text to proccess then the key</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="543"/>
         <source>&lt;center&gt;Etes vous sur de vouloir quitter l&apos;application&lt;/center&gt;</source>
         <translation>&lt;center&gt;are you sure to want quit the application ?&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="81"/>
+        <location filename="../mainwindow.h" line="84"/>
         <source>Contacter nous a l&apos;adresse mail
 fbemmo.megasoft@gmail.com</source>
         <translation>contact us at the mail address
