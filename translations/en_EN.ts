@@ -87,13 +87,13 @@
         <location filename="../mainwindow.ui" line="398"/>
         <location filename="../mainwindow.ui" line="575"/>
         <source>Ouvrir un fichier</source>
-        <translation type="unfinished"></translation>
+        <translation>Open file</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="418"/>
         <location filename="../mainwindow.ui" line="824"/>
         <source>Enregistrer</source>
-        <translation type="unfinished"></translation>
+        <translation>Save</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="434"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../mainwindow.ui" line="595"/>
         <source>Enregistrer la Cle</source>
-        <translation type="unfinished"></translation>
+        <translation>Save the Key</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="611"/>
@@ -242,7 +242,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="428"/>
         <source>Ouvrir le fichier contenant le message</source>
-        <translation type="unfinished"></translation>
+        <translation>Open the file containing the message</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="429"/>
@@ -251,7 +251,7 @@
         <location filename="../mainwindow.cpp" line="478"/>
         <location filename="../mainwindow.cpp" line="493"/>
         <source>Fichiers Textes(*.txt *.dat)</source>
-        <translation type="unfinished"></translation>
+        <translation>Files Texts(*.txt *.dat)</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="433"/>
@@ -260,23 +260,23 @@
         <location filename="../mainwindow.cpp" line="482"/>
         <location filename="../mainwindow.cpp" line="497"/>
         <source>erreur</source>
-        <translation type="unfinished"></translation>
+        <translation>error</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="445"/>
         <source>Ouvrir le fichier contenant la Cle</source>
-        <translation type="unfinished"></translation>
+        <translation>Open the file containing the Key</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="462"/>
         <source>Entrez le nom du fichier de sauvegarde du message</source>
-        <translation type="unfinished"></translation>
+        <translation>Enter the save file&apos;s name of message</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="477"/>
         <location filename="../mainwindow.cpp" line="492"/>
         <source>Entrez le nom du fichier de sauvegarde de la cle</source>
-        <translation type="unfinished"></translation>
+        <translation>Enter the save file&apos;s name of key</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="522"/>
@@ -296,7 +296,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="528"/>
         <source>Cle: </source>
-        <translation type="unfinished"></translation>
+        <translation>Key :</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="543"/>

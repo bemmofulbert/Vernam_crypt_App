@@ -19,7 +19,11 @@ void initLanguage(QApplication &a) {
 
 int main(int argc, char *argv[])
 {
+//    QApplication::setDesktopSettingsAware(false);
+//    QApplication::setStyle("gtk");
+
     QApplication a(argc, argv);
+
     QLocale::setDefault(QLocale(QLocale::French,QLocale::France));
     initLanguage(a);
     MainWindow w(nullptr,&a,translator_fr,translator_en);

@@ -82,6 +82,7 @@ private:
     QString text_uncorrespond = tr("verifier votre chaine\nque les lettres cryptent les lettres\net les chiffres, les chiffres");
     QString text_vide = tr("Taper du texte a chiffrer puis la cle");
     QString alert_contact = tr("Contacter nous a l'adresse mail\nfbemmo.megasoft@gmail.com");
+    QString green = "green";
 
     QTranslator *translator_fr,*translator_en;
     QApplication *App ;

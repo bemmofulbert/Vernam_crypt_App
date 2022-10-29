@@ -229,16 +229,17 @@ void MainWindow::initIcon() {
     ui->actionDezoomer->setIcon(QIcon::fromTheme("zoom-out"));
     ui->actionZoomer->setIcon(QIcon::fromTheme("zoom-in"));
 }
+
 void MainWindow::setGraphic_dechif() {
     ui->lab_mes->setText(lab_mes_chif);
     ui->lab_result->setText(lab_result_chif);
-    ui->but_genKey->hide();
-    ui->but_chiff->hide();
-    ui->but_deChiff->show();
+     ui->but_genKey->hide();
+     ui->but_chiff->hide();
+     ui->but_deChiff->show();
     ui->actionDeChiffrement->setIcon(QIcon(QPixmap("Close_oojs.png")));
     ui->actionChiffrement->setIcon(QIcon());
     ui->rad_dechif->toggle();
-    ui->rad_chif->setStyleSheet("");ui->rad_dechif->setStyleSheet("color:green;border:1px solid green;font-weight:bold");
+    ui->rad_chif->setStyleSheet("");ui->rad_dechif->setStyleSheet("color:"+green+";border:1px solid "+green+";font-weight:bold");
     limit_mes();
     ui->retranslateUi(this);
 }
@@ -252,7 +253,7 @@ void MainWindow::setGraphic_chif() {
     ui->actionDeChiffrement->setIcon(QIcon());
     ui->actionChiffrement->setIcon(QIcon(QPixmap("Close_oojs.png")));
     ui->rad_chif->toggle();
-    ui->rad_chif->setStyleSheet("color:green;border:1px solid green;font-weight:bold");ui->rad_dechif->setStyleSheet("");
+    ui->rad_chif->setStyleSheet("color:"+green+";border:1px solid "+green+";font-weight:bold");ui->rad_dechif->setStyleSheet("");
     ui->retranslateUi(this);
 }
 
@@ -532,7 +533,18 @@ void MainWindow::update_statusBar(){
 void MainWindow::dark_mode() {
     if (ui->actionDark_mode->isChecked()){
         this->setStyleSheet("background-color:#404142;color:white;");
-    }else this->setStyleSheet("");
+        green = "lightgreen";
+    }else {
+        this->setStyleSheet("");
+        green = "green";
+    }
+
+    ui->ptex_traite->setStyleSheet("border:2px dashed "+green);
+    if(ui->rad_chif->isChecked()) {
+        ui->rad_chif->click();
+    }else {
+        ui->rad_dechif->click();
+    }
 }
 void MainWindow::dark_mode_for_but() {
     ui->actionDark_mode->toggle();

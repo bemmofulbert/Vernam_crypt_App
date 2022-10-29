@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Chiffre de Vernam (masque jetable)</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Documents/qt/Vernam/ico.png</normaloff>../../Documents/qt/Vernam/ico.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -442,6 +446,9 @@
         <property name="plainText">
          <string notr="true"/>
         </property>
+        <property name="placeholderText">
+         <string>Entrez le Message á traiter ici...</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -618,6 +625,9 @@
         </property>
         <property name="plainText">
          <string notr="true"/>
+        </property>
+        <property name="placeholderText">
+         <string>Entrez la Clé ici...</string>
         </property>
        </widget>
       </item>
@@ -859,6 +869,9 @@
         </property>
         <property name="backgroundVisible">
          <bool>false</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Le resultat du traitement s'affiche ici</string>
         </property>
        </widget>
       </item>
