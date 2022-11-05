@@ -17,6 +17,7 @@ void initLanguage(QApplication &a) {
     }
 }
 
+
 int main(int argc, char *argv[])
 {
 //    QApplication::setDesktopSettingsAware(false);
@@ -31,6 +32,8 @@ int main(int argc, char *argv[])
     QPalette palette;
     palette.setColor(QPalette::Window,QColor(239,239,239));
     w.setPalette(palette);
+
+
     return a.exec();
 
 //    char* texte = (char*)malloc(sizeof(char)*5);

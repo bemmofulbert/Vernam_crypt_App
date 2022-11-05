@@ -18,7 +18,9 @@ extern "C" {
 #include <QTranslator>
 #include <QCoreApplication>
 #include <QFileDialog>
+#include <QMovie>
 
+#include <wizardfichier.h>
 #include <history.h>
 
 QT_BEGIN_NAMESPACE
@@ -65,23 +67,25 @@ public slots:
     void saveMes_toFile();
     void saveKey_toFile();
     void saveTraite_toFile();
+    void toggle_lang();
+    void montrer_avert_noSave();
 private:
     Ui::MainWindow *ui;
     HistoryDialog *hisDial;
-    QString mes_error_length = tr("la clé doivent avoir au moins le meme nombre de lettre que le message");
-    QString mes_error_already = tr("Attention ! cette clé a déjá été utilisé");
-    QString lab_mes_clear = tr("Message Clair :");
-    QString lab_mes_chif = tr("Message Chiffre :");
-    QString lab_result_clear = tr("Resultat du Chiffrement :");
-    QString lab_result_chif = tr("Resultat du Dechiffrement :");
+    const QString mes_error_length = tr("la clé doivent avoir au moins le meme nombre de lettre que le message");
+    const QString mes_error_already = tr("Attention ! cette clé a déjá été utilisé");
+    const QString lab_mes_clear = tr("Message Clair :");
+    const QString lab_mes_chif = tr("Message Chiffre :");
+    const QString lab_result_clear = tr("Resultat du Chiffrement :");
+    const QString lab_result_chif = tr("Resultat du Dechiffrement :");
     //QString but_trait_chif = tr("DeChiffrer");
     //QString but_trait_clear = tr("Chiffrer");
-    QString text_char_letter = tr("le prochain caractere doit etre une lettre");
-    QString text_char_number = tr("le prochain caractere doit etre un chiffre");
-    QString text_key_correct = tr("la cle respecte les normes");
-    QString text_uncorrespond = tr("verifier votre chaine\nque les lettres cryptent les lettres\net les chiffres, les chiffres");
-    QString text_vide = tr("Taper du texte a chiffrer puis la cle");
-    QString alert_contact = tr("Contacter nous a l'adresse mail\nfbemmo.megasoft@gmail.com");
+    const QString text_char_letter = tr("le prochain caractere doit etre une lettre");
+    const QString text_char_number = tr("le prochain caractere doit etre un chiffre");
+    const QString text_key_correct = tr("la cle respecte les normes");
+    const QString text_uncorrespond = tr("verifier votre chaine\nque les lettres cryptent les lettres\net les chiffres, les chiffres");
+    const QString text_vide = tr("Taper du texte a chiffrer puis la cle");
+    const QString alert_contact = tr("Contacter nous a l'adresse mail\nfbemmo.megasoft@gmail.com");
     QString green = "green";
 
     QTranslator *translator_fr,*translator_en;
@@ -89,6 +93,8 @@ private:
 
     void initIcon();
     void initGraphic();
+
+    WizardFichier *wizs;
 
 protected :
     void closeEvent(QCloseEvent *event);

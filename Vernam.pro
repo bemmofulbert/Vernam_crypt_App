@@ -13,13 +13,15 @@ SOURCES += \
     historydialog.cpp \
     main.cpp \
     mainwindow.cpp \
-    vernam.c
+    vernam.c \
+    wizardFichier.cpp
 
 HEADERS += \
     history.h \
     historydialog.h \
     mainwindow.h \
-    vernam.h
+    vernam.h \
+    wizardfichier.h
 
 FORMS += \
     historydialog.ui \

@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
         // langue
     connect(ui->actionFrancais,SIGNAL(triggered()),this,SLOT(lang_fr()));
     connect(ui->actionAnglais,SIGNAL(triggered()),this,SLOT(lang_en()));
+    connect(ui->but_lang,SIGNAL(clicked()),this,SLOT(toggle_lang()));
         // action et bouton tout effacerdark_mode_for_but()
     connect(ui->actionTout_effacer,SIGNAL(triggered()),this,SLOT(tout_effacer()));
     connect(ui->tbut_tout_effacer,SIGNAL(clicked()),this,SLOT(tout_effacer()));
@@ -61,6 +62,8 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
         //historique
     connect(ui->tbut_history,SIGNAL(clicked()),this,SLOT(montrer_historique()));
     connect(ui->actionHistorique_des_Cl_s,SIGNAL(triggered()),this,SLOT(montrer_historique()));
+        // activer/desactiver l'historique des cles
+    connect(ui->actionActiver_la_sauvegarde_des_Cl_s,SIGNAL(triggered()),this,SLOT(montrer_avert_noSave()));
         //import export
             //open
     connect(ui->but_openMes,SIGNAL(clicked()),this,SLOT(openMes_fromFile()));
@@ -75,6 +78,10 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
             //a propos
     connect(ui->actionA_Propos,SIGNAL(triggered()),this,SLOT(a_propos()));
 
+    // init Wizard
+    wizs = new WizardFichier();
+    connect(ui->actionChiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_Chif(),SLOT(exec()));
+    connect(ui->actionDechiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_DeChif(),SLOT(exec()));
 
     //init
     update_statusBar();
@@ -87,7 +94,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::limit_key() {
+void MainWindow::limit_key() { // mettre en forme le champ de saisie de la cle
+
     QString text = ui->ptex_key->toPlainText();
     QTextCursor cursor = ui->ptex_key->textCursor();
     int curPos = cursor.position();
@@ -148,7 +156,8 @@ void MainWindow::limit_key() {
     update_statusBar();
 }
 
-void MainWindow::limit_mes() {
+void MainWindow::limit_mes() { // mettre en forme le champ de saisie du message
+
     QString text = ui->ptex_mes->toPlainText();
     QTextCursor cursor = ui->ptex_mes->textCursor();
     int curPos = cursor.position();
@@ -212,22 +221,26 @@ void MainWindow::limit_mes() {
 
     update_statusBar();
 }
-void MainWindow::initGraphic() {
+void MainWindow::initGraphic() { // initialiser les elements graphique de la fenetre
     ui->but_deChiff->hide();
     ui->rad_chif->setStyleSheet("color:green;border:1px solid green;font-weight:bold");
     initIcon();
 }
-void MainWindow::initIcon() {
-    ui->actionChiffrement->setIcon(QIcon(QPixmap("Close_oojs.png")));
+void MainWindow::initIcon() { // initialiser les icones
+    ui->actionChiffrement->setIcon(QIcon(QPixmap("images/Close_oojs.png")));
     ui->actionChiffrer_deChiffrer->setIcon(QIcon::fromTheme("system-lock-screen"));
     ui->actionQuitter->setIcon(QIcon::fromTheme("system-log-out"));
-    ui->actionTout_effacer->setIcon(QIcon::fromTheme("edit-clear"));
+    ui->actionTout_effacer->setIcon(QIcon::fromTheme("user-trash-full"));
     ui->actionHistorique_des_Cl_s->setIcon(QIcon::fromTheme("user-bookmarks"));
     ui->actionConsulter_notre_aide->setIcon(QIcon::fromTheme("system-help"));
     ui->actionA_Propos->setIcon(QIcon::fromTheme("preferences-desktop-personal"));
     ui->actionContactez_nous->setIcon(QIcon::fromTheme("call-start"));
     ui->actionDezoomer->setIcon(QIcon::fromTheme("zoom-out"));
     ui->actionZoomer->setIcon(QIcon::fromTheme("zoom-in"));
+    ui->but_lang->setIcon(QIcon(QPixmap("images/french.png")));
+    QMovie *deco = new QMovie("images/cube11.gif",QByteArray(),this);
+    deco->setScaledSize(QSize(25,25));
+    ui->lab_deco->setMovie(deco);deco->start();
 }
 
 void MainWindow::setGraphic_dechif() {
@@ -236,7 +249,7 @@ void MainWindow::setGraphic_dechif() {
      ui->but_genKey->hide();
      ui->but_chiff->hide();
      ui->but_deChiff->show();
-    ui->actionDeChiffrement->setIcon(QIcon(QPixmap("Close_oojs.png")));
+    ui->actionDeChiffrement->setIcon(QIcon(QPixmap("images/Close_oojs.png")));
     ui->actionChiffrement->setIcon(QIcon());
     ui->rad_dechif->toggle();
     ui->rad_chif->setStyleSheet("");ui->rad_dechif->setStyleSheet("color:"+green+";border:1px solid "+green+";font-weight:bold");
@@ -251,13 +264,13 @@ void MainWindow::setGraphic_chif() {
     ui->but_chiff->show();
     ui->but_deChiff->hide();
     ui->actionDeChiffrement->setIcon(QIcon());
-    ui->actionChiffrement->setIcon(QIcon(QPixmap("Close_oojs.png")));
+    ui->actionChiffrement->setIcon(QIcon(QPixmap("images/Close_oojs.png")));
     ui->rad_chif->toggle();
     ui->rad_chif->setStyleSheet("color:"+green+";border:1px solid "+green+";font-weight:bold");ui->rad_dechif->setStyleSheet("");
     ui->retranslateUi(this);
 }
 
-void MainWindow::tout_effacer() {
+void MainWindow::tout_effacer() { // TOUT EFFACER
     ui->ptex_mes->clear();
     ui->ptex_key->clear();
     ui->ptex_traite->clear();
@@ -284,7 +297,7 @@ bool MainWindow::key_exist(QString &key) {
     }
     return false;
 }
-bool MainWindow::correspond() {
+bool MainWindow::correspond() { // verifie que les champs respecte les contraintes
     QString mes=ui->ptex_mes->toPlainText().simplified().remove(' ');
     QString key=ui->ptex_key->toPlainText().simplified().remove(' ');
     for(int i=0;i<mes.size();i++){
@@ -299,7 +312,7 @@ bool MainWindow::correspond() {
     }
     return true;
 }
-bool MainWindow::chaine_ok(){
+bool MainWindow::chaine_ok(){ // une autre couche pour vernam_apte()
     QString mes=ui->ptex_mes->toPlainText().simplified().remove(' ');
     QString key=ui->ptex_key->toPlainText().simplified().remove(' ');
     if(key.isEmpty() || mes.isEmpty()) {
@@ -328,38 +341,56 @@ void MainWindow::postTraitement() {
         hisDial->List_key()->prepend(key);
     }
 }
-void MainWindow::crypter(){
+void MainWindow::crypter(){ // Crypter le message et afficher le resultat
     if(!preTraitement()) return;
 
-    QString aChiff = ui->ptex_mes->toPlainText().simplified().remove(' ');
-    QString key = ui->ptex_key->toPlainText().simplified().remove(' ');
+    QString aChiff = ui->ptex_mes->toPlainText();
+    QString key = ui->ptex_key->toPlainText();
+        aChiff = aChiff.simplified().remove(' ');
+        key = key.simplified().remove(' ');
+
+    char* c;
 
     for(int i=0; i< aChiff.size();i++){
-        char* c = vernam_chiffrer(
-                    ((QString()+aChiff.at(i))).toUtf8().data(),
-                    ((QString()+key.at(i))).toUtf8().data());
+
+        c = vernam_chiffrer((QString() + aChiff.at(i)).toUtf8().data(),
+                                 (QString()+key.at(i)).toUtf8().data());
+
         ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString::fromUtf8(c,sizeof(char)));
+
         if(( (i+1) %5 == 0)) ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString(' '));
+
         free(c);
     }
-    postTraitement();
+    if (ui->actionActiver_la_sauvegarde_des_Cl_s->isChecked()) postTraitement();
+
 }
 
-void MainWindow::decrypter(){
+void MainWindow::decrypter(){ // DeCrypter le message et afficher le resultat
    if(!preTraitement()) return;
 
-    QString aDeChiff = ui->ptex_mes->toPlainText().simplified().remove(' ');
-    QString key = ui->ptex_key->toPlainText().simplified().remove(' ');
+    QString aDeChiff = ui->ptex_mes->toPlainText();
+    QString key = ui->ptex_key->toPlainText();
+        aDeChiff = aDeChiff.simplified().remove(' ');
+        key = key.simplified().remove(' ');
+
     if(key.isEmpty() || aDeChiff.isEmpty()) return;
+
+    char* c;
+
     for(int i=0; i< aDeChiff.size();i++){
-        char* c = vernam_dechiffrer(
-                    ((QString()+aDeChiff.at(i))).toUtf8().data(),
-                    ((QString()+key.at(i))).toUtf8().data());
+
+        c = vernam_dechiffrer((QString() + aDeChiff.at(i)).toUtf8().data(),
+                              (QString()+key.at(i)).toUtf8().data());
+
         ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString::fromUtf8(c,sizeof(char)));
+
         if(( (i+1) %5 == 0)) ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString(' '));
+
         free(c);
     }
-    postTraitement();
+    if (ui->actionActiver_la_sauvegarde_des_Cl_s->isChecked()) postTraitement();
+
 }
 
 void MainWindow::traitement() {
@@ -399,12 +430,22 @@ void MainWindow::genCle(){
     ui->ptex_key->setPlainText(str);
 }
 
+void MainWindow::montrer_avert_noSave() {
+    if (!ui->actionActiver_la_sauvegarde_des_Cl_s->isChecked())
+        QMessageBox::information(this,"sauvegarde des cles desactive",
+                                 "Vous ne pourrez plus savoir si vous avez deja utilise une cle !");
+}
+
 void MainWindow::montrer_historique(){
     hisDial->fill();
     hisDial->setMaximumWidth(this->width());
     hisDial->setVisible(true);
 }
-
+void MainWindow::toggle_lang(){
+    if(ui->actionAnglais->isChecked()) {
+        lang_fr();
+    }else lang_en();
+}
 void MainWindow::lang_fr() {
     ui->actionFrancais->setChecked(true);
     ui->actionAnglais->setChecked(false);
@@ -412,6 +453,7 @@ void MainWindow::lang_fr() {
         App->installTranslator(translator_fr);
         ui->retranslateUi(this);
         qDebug("langue actuelle :fr_FR");
+        ui->but_lang->setIcon(QIcon(QPixmap("images/french.png")));
     }
 }
 
@@ -422,6 +464,7 @@ void MainWindow::lang_en() {
         App->installTranslator(translator_en);
         ui->retranslateUi(this);
         qDebug("langue actuelle :en_EN");
+        ui->but_lang->setIcon(QIcon(QPixmap("images/english.png")));
     }
 }
 
@@ -562,9 +605,11 @@ void MainWindow::contacter_nous(){
     QMessageBox::information(this,tr("contact"),alert_contact);
 }
 void MainWindow::a_propos() {
-    QMessageBox::information(this,tr("A propos"),tr("logiciel de chiffrement utilisant <br>le chiffre de Vernam sous licence libre<br><br>")
+    QMessageBox about(QMessageBox::Information,tr("A propos"),tr("logiciel de chiffrement utilisant <br>le chiffre de Vernam sous licence libre<br><br>")
                              +tr("Fait par :")+ " <br><B>BEMMO MBOBDA FULBERT ALEXANDRE<br>"
                              +"DNJOMOU YOMBA WILFRIED LOIC<br>"
                              +"TONBA DJIMGOU BRAILAIN LOIC<br>"
-                             +"</B>");
+                             +"</B>",QMessageBox::Ok,this);
+    about.setIconPixmap(QPixmap("images/logo_long.jpg").scaled(150,84));
+    about.exec();
 }

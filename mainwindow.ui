@@ -208,6 +208,22 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="but_lang">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="but_darkMode">
         <property name="maximumSize">
          <size>
@@ -245,6 +261,25 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="lab_deco">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -974,6 +1009,7 @@
      <string>Application</string>
     </property>
     <addaction name="actionChiffrer_deChiffrer"/>
+    <addaction name="actionActiver_la_sauvegarde_des_Cl_s"/>
     <addaction name="actionHistorique_des_Cl_s"/>
     <addaction name="actionTout_effacer"/>
     <addaction name="separator"/>
@@ -998,10 +1034,21 @@
     <addaction name="separator"/>
     <addaction name="menuLangue"/>
    </widget>
+   <widget class="QMenu" name="menuFichier">
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string>Traitement Fichier</string>
+    </property>
+    <addaction name="actionChiffrer_un_fichier"/>
+    <addaction name="actionDechiffrer_un_fichier"/>
+   </widget>
    <addaction name="menuApplication"/>
    <addaction name="menuMode"/>
    <addaction name="menuAffichage"/>
    <addaction name="menuAide"/>
+   <addaction name="menuFichier"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionChiffrement">
@@ -1084,6 +1131,35 @@
    </property>
    <property name="text">
     <string>Anglais</string>
+   </property>
+  </action>
+  <action name="actionActiver_la_sauvegarde_des_Cl_s">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Activer la sauvegarde des Clés</string>
+   </property>
+  </action>
+  <action name="actionChiffrer_un_fichier">
+   <property name="text">
+    <string>Chiffrer un fichier</string>
+   </property>
+  </action>
+  <action name="actionDechiffrer_un_fichier">
+   <property name="text">
+    <string>Dechiffrer un fichier</string>
+   </property>
+  </action>
+  <action name="actionTraitement_XOR">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Traitement XOR</string>
    </property>
   </action>
  </widget>
