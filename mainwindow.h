@@ -19,6 +19,7 @@ extern "C" {
 #include <QCoreApplication>
 #include <QFileDialog>
 #include <QMovie>
+#include <QKeyEvent>
 
 #include <wizardfichier.h>
 #include <history.h>
@@ -69,6 +70,8 @@ public slots:
     void saveTraite_toFile();
     void toggle_lang();
     void montrer_avert_noSave();
+
+    void toggleBrouil();
 private:
     Ui::MainWindow *ui;
     HistoryDialog *hisDial;
@@ -86,6 +89,7 @@ private:
     const QString text_uncorrespond = tr("verifier votre chaine\nque les lettres cryptent les lettres\net les chiffres, les chiffres");
     const QString text_vide = tr("Taper du texte a chiffrer puis la cle");
     const QString alert_contact = tr("Contacter nous a l'adresse mail\nfbemmo.megasoft@gmail.com");
+    const QString brouilleur_indication = "\tBouger la souris pour generer la cle\n\tAppuyer sur echap pour Anuller";
     QString green = "green";
 
     QTranslator *translator_fr,*translator_en;
@@ -95,8 +99,16 @@ private:
     void initGraphic();
 
     WizardFichier *wizs;
+    bool BrouilleurActive = false;
+    QString BrouilleurKey;
+    int oldX=(QRandomGenerator::global()->generate()%320);
+    int oldY=(QRandomGenerator::global()->generate()%240);
+    int BrouilleurPos=0;
 
 protected :
     void closeEvent(QCloseEvent *event);
+
+    void keyPressEvent(QKeyEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 };
 #endif // MAINWINDOW_H

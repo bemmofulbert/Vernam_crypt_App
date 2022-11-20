@@ -22,4 +22,9 @@ char* vernam_xor(char* texte,char* cle);
 int mod10(int number);
 int mod26(int number);
 
+int ASCII_to_chiffre(char ascii);
+int ASCII_to_numLettre(char ascii);
+char chiffre_to_ascii(int chiffre);
+char lettre_to_ascii(int lettre);
+
 #endif // VERNAM_H

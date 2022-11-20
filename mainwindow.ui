@@ -726,6 +726,22 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="but_Brouil">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset theme="input-mouse"/>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
      </layout>
@@ -973,6 +989,13 @@
        </layout>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progBar_Brouilleur">
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

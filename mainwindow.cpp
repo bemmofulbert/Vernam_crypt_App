@@ -82,7 +82,8 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
     wizs = new WizardFichier();
     connect(ui->actionChiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_Chif(),SLOT(exec()));
     connect(ui->actionDechiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_DeChif(),SLOT(exec()));
-
+    //Brouiller
+    connect(ui->but_Brouil,SIGNAL(clicked()),this,SLOT(toggleBrouil()));
     //init
     update_statusBar();
         //graphique
@@ -102,7 +103,7 @@ void MainWindow::limit_key() { // mettre en forme le champ de saisie de la cle
     bool badCharacter = false;
     int oldSize = text.size();
 
-    ui->lab_avert->hide();
+    if(!BrouilleurActive) ui->lab_avert->hide();
     if(text.isEmpty()) return;
     text = text.simplified().remove(' ');
     text.squeeze();
@@ -225,6 +226,7 @@ void MainWindow::initGraphic() { // initialiser les elements graphique de la fen
     ui->but_deChiff->hide();
     ui->rad_chif->setStyleSheet("color:green;border:1px solid green;font-weight:bold");
     initIcon();
+    ui->progBar_Brouilleur->hide();
 }
 void MainWindow::initIcon() { // initialiser les icones
     ui->actionChiffrement->setIcon(QIcon(QPixmap("images/Close_oojs.png")));
@@ -277,14 +279,18 @@ void MainWindow::tout_effacer() { // TOUT EFFACER
 }
 
 void MainWindow::avert_red(const QString &text) {
-    ui->lab_avert->setStyleSheet("color: red");
-    ui->lab_avert->setText(text);
-    ui->lab_avert->show();
+    if (!BrouilleurActive) {
+        ui->lab_avert->setStyleSheet("color: red");
+        ui->lab_avert->setText(text);
+        ui->lab_avert->show();
+    }
 }
 void MainWindow::avert_green(const QString &text) {
-    ui->lab_avert->setStyleSheet("color: green");
-    ui->lab_avert->setText(text);
-    ui->lab_avert->show();
+    if (!BrouilleurActive) {
+        ui->lab_avert->setStyleSheet("color: green");
+        ui->lab_avert->setText(text);
+        ui->lab_avert->show();
+    }
 }
 
 bool MainWindow::key_exist(QString &key) {
@@ -427,7 +433,6 @@ void MainWindow::genCle(){
              str = str + QString(temp);
         }
     // }while (key_exist(str));
-    //ui->lab_avert->hide();
     if(str.isEmpty()) str =tr("erreur de generation");
     ui->ptex_key->setPlainText(str);
 }
@@ -616,4 +621,70 @@ void MainWindow::a_propos() {
                              +"</B>",QMessageBox::Ok,this);
     about.setIconPixmap(QPixmap("images/logo_long.jpg").scaled(150,84));
     about.exec();
+}
+void MainWindow::keyPressEvent(QKeyEvent *event){
+    const int keyEsc = 16777216;
+    if (BrouilleurActive){
+        if(event->key() == keyEsc){
+            BrouilleurActive = false;
+            releaseMouse();
+            setMouseTracking(false);
+            ui->but_Brouil->setStyleSheet("");
+            menuBar()->setEnabled(true);
+            ui->ptex_mes->setEnabled(true);
+            ui->ptex_traite->setEnabled(true);
+            ui->lab_deco->movie()->start();
+            ui->lab_avert->hide();
+            ui->progBar_Brouilleur->hide();
+        }
+    }
+}
+void MainWindow::mouseMoveEvent(QMouseEvent *event) {
+    const int x=event->pos().x(),y=event->pos().y();
+    int k=0;
+    QString cleActuel = ui->ptex_key->toPlainText().simplified().remove(" ");
+
+    if (BrouilleurActive) {
+        if (x>=oldX && y>=oldY) k=0;
+        else if (x>=oldX && y<oldY) k=1;
+        else if (x<oldX && y>=oldY) k=2;
+        else if (x<oldX && y<oldY) k=3;
+    }
+    char oldC = cleActuel[BrouilleurPos].toLatin1();
+    char newC = oldC;
+    if(QChar(oldC).isLetter())
+         newC = lettre_to_ascii(mod26(ASCII_to_numLettre(oldC)+ASCII_to_numLettre(BrouilleurKey[k].toLatin1())));
+    else if(QChar(oldC).isNumber())
+         newC = chiffre_to_ascii(mod10(ASCII_to_chiffre(oldC)+ASCII_to_chiffre(BrouilleurKey[k].toLatin1())));
+
+    cleActuel = cleActuel.replace(BrouilleurPos,1,QChar(newC));
+    ui->ptex_key->setPlainText(cleActuel);
+    if(++BrouilleurPos >= cleActuel.size()) BrouilleurPos=0;
+
+    ui->progBar_Brouilleur->setValue((BrouilleurPos+1)*100/cleActuel.size());
+}
+void MainWindow::toggleBrouil() {
+    if(!BrouilleurActive) {
+        BrouilleurActive = true;
+        grabMouse();
+        setMouseTracking(true);
+        ui->but_Brouil->setStyleSheet("background-color:green");
+
+        genCle();
+        BrouilleurKey.clear();
+        char c;
+        for(int i=0;i<4;i++) {
+            c='A'+(char)(QRandomGenerator::global()->generate()%26);
+            BrouilleurKey.append(c);
+        }
+        menuBar()->setEnabled(false);
+        ui->ptex_mes->setEnabled(false);
+        ui->ptex_traite->setEnabled(false);
+        ui->lab_deco->movie()->stop();
+        ui->progBar_Brouilleur->show();
+
+        ui->lab_avert->setStyleSheet("color: blue");
+        ui->lab_avert->setText(brouilleur_indication);
+        ui->lab_avert->show();
+    }
 }
