@@ -1067,6 +1067,8 @@
     </property>
     <addaction name="actionChiffrer_un_fichier"/>
     <addaction name="actionDechiffrer_un_fichier"/>
+    <addaction name="separator"/>
+    <addaction name="actionCalculer_Hash"/>
    </widget>
    <addaction name="menuApplication"/>
    <addaction name="menuMode"/>
@@ -1192,6 +1194,11 @@
    </property>
    <property name="text">
     <string>A = 1</string>
+   </property>
+  </action>
+  <action name="actionCalculer_Hash">
+   <property name="text">
+    <string>Calculer Hash Sha-1</string>
    </property>
   </action>
  </widget>

@@ -58,7 +58,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="320"/>
-        <location filename="../mainwindow.ui" line="993"/>
+        <location filename="../mainwindow.ui" line="1016"/>
         <source>Mode</source>
         <translation>Mode</translation>
     </message>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="361"/>
-        <location filename="../mainwindow.ui" line="1056"/>
+        <location filename="../mainwindow.ui" line="1082"/>
         <source>Chiffrement</source>
         <translation>Encryption</translation>
     </message>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="457"/>
-        <location filename="../mainwindow.ui" line="869"/>
+        <location filename="../mainwindow.ui" line="885"/>
         <source>Enregistrer</source>
         <translation>Save</translation>
     </message>
@@ -108,14 +108,14 @@
     <message>
         <location filename="../mainwindow.ui" line="512"/>
         <location filename="../mainwindow.ui" line="689"/>
-        <location filename="../mainwindow.ui" line="933"/>
+        <location filename="../mainwindow.ui" line="949"/>
         <source>Effacer</source>
         <translation>Erase</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="547"/>
         <location filename="../mainwindow.ui" line="718"/>
-        <location filename="../mainwindow.ui" line="962"/>
+        <location filename="../mainwindow.ui" line="978"/>
         <source>Copier</source>
         <translation>Copy</translation>
     </message>
@@ -140,288 +140,308 @@
         <translation>Enter the key here...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="767"/>
+        <location filename="../mainwindow.ui" line="783"/>
         <source>Traiter le texte</source>
         <translation>Process text</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="795"/>
+        <location filename="../mainwindow.ui" line="811"/>
         <source>générer une clé aleatoire de meme longueur que votre message a chiffrer</source>
         <translation>Generate a random key of the same length as your message to be encrypted</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="801"/>
+        <location filename="../mainwindow.ui" line="817"/>
         <source>générer une clé aleatoire</source>
         <translation>generate random key</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="885"/>
+        <location filename="../mainwindow.ui" line="901"/>
         <source>Texte Resultat</source>
         <translation>Result text</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="909"/>
+        <location filename="../mainwindow.ui" line="925"/>
         <source>Le resultat du traitement s&apos;affiche ici</source>
         <translation>The result of process will display here...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1000"/>
+        <location filename="../mainwindow.ui" line="1023"/>
         <source>Aide</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1009"/>
+        <location filename="../mainwindow.ui" line="1032"/>
         <source>Application</source>
         <translation>Application</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1021"/>
+        <location filename="../mainwindow.ui" line="1045"/>
         <source>Affichage</source>
         <translation>Display</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1025"/>
+        <location filename="../mainwindow.ui" line="1049"/>
         <source>Langue</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1042"/>
+        <location filename="../mainwindow.ui" line="1066"/>
         <source>Traitement Fichier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1061"/>
+        <location filename="../mainwindow.ui" line="1087"/>
         <source>DeChiffrement</source>
         <translation>Decryption</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1066"/>
+        <location filename="../mainwindow.ui" line="1092"/>
         <source>Contactez nous</source>
         <translation>Contact us</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1071"/>
+        <location filename="../mainwindow.ui" line="1097"/>
         <source>Consulter l&apos;aide</source>
         <translation>Consult help</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1076"/>
+        <location filename="../mainwindow.ui" line="1102"/>
         <source>Quitter</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1081"/>
+        <location filename="../mainwindow.ui" line="1107"/>
         <source>Tout effacer</source>
         <translation>Clear All plaintexts</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1086"/>
+        <location filename="../mainwindow.ui" line="1112"/>
         <source>Historique des Clés</source>
         <translation>history of keys</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1091"/>
+        <location filename="../mainwindow.ui" line="1117"/>
         <source>Chiffrer/deChiffrer</source>
         <translation>Encryption/Decryption</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1096"/>
+        <location filename="../mainwindow.ui" line="1122"/>
         <source>A Propos</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1104"/>
+        <location filename="../mainwindow.ui" line="1130"/>
         <source>Dark mode</source>
         <translation>Dark Mode</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1109"/>
+        <location filename="../mainwindow.ui" line="1135"/>
         <source>Zoomer</source>
         <translation>increase pointSize</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1114"/>
+        <location filename="../mainwindow.ui" line="1140"/>
         <source>Dezoomer</source>
         <translation>decrease pointSize</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1125"/>
+        <location filename="../mainwindow.ui" line="1151"/>
         <source>Francais</source>
         <translation>French</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1133"/>
+        <location filename="../mainwindow.ui" line="1159"/>
         <source>Anglais</source>
         <translation>English</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1144"/>
+        <location filename="../mainwindow.ui" line="1170"/>
         <source>Activer la sauvegarde des Clés</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1149"/>
+        <location filename="../mainwindow.ui" line="1175"/>
         <source>Chiffrer un fichier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1154"/>
+        <location filename="../mainwindow.ui" line="1180"/>
         <source>Dechiffrer un fichier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="1162"/>
+        <location filename="../mainwindow.ui" line="1188"/>
         <source>Traitement XOR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.ui" line="1196"/>
+        <source>A = 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="1201"/>
+        <source>Calculer Hash Sha-1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="440"/>
         <source>erreur de generation</source>
         <translation>error of generation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="474"/>
+        <location filename="../mainwindow.cpp" line="485"/>
         <source>Ouvrir le fichier contenant le message</source>
         <translation>Open the file containing the message</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="475"/>
-        <location filename="../mainwindow.cpp" line="492"/>
-        <location filename="../mainwindow.cpp" line="509"/>
-        <location filename="../mainwindow.cpp" line="524"/>
-        <location filename="../mainwindow.cpp" line="539"/>
+        <location filename="../mainwindow.cpp" line="486"/>
+        <location filename="../mainwindow.cpp" line="503"/>
+        <location filename="../mainwindow.cpp" line="520"/>
+        <location filename="../mainwindow.cpp" line="535"/>
+        <location filename="../mainwindow.cpp" line="550"/>
         <source>Fichiers Textes(*.txt *.dat)</source>
         <translation>Files Texts(*.txt *.dat)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="479"/>
-        <location filename="../mainwindow.cpp" line="496"/>
-        <location filename="../mainwindow.cpp" line="513"/>
-        <location filename="../mainwindow.cpp" line="528"/>
-        <location filename="../mainwindow.cpp" line="543"/>
+        <location filename="../mainwindow.cpp" line="490"/>
+        <location filename="../mainwindow.cpp" line="507"/>
+        <location filename="../mainwindow.cpp" line="524"/>
+        <location filename="../mainwindow.cpp" line="539"/>
+        <location filename="../mainwindow.cpp" line="554"/>
         <source>erreur</source>
         <translation>error</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="491"/>
+        <location filename="../mainwindow.cpp" line="502"/>
         <source>Ouvrir le fichier contenant la Cle</source>
         <translation>Open the file containing the Key</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="508"/>
+        <location filename="../mainwindow.cpp" line="519"/>
         <source>Entrez le nom du fichier de sauvegarde du message</source>
         <translation>Enter the save file&apos;s name of message</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="523"/>
-        <location filename="../mainwindow.cpp" line="538"/>
+        <location filename="../mainwindow.cpp" line="534"/>
+        <location filename="../mainwindow.cpp" line="549"/>
         <source>Entrez le nom du fichier de sauvegarde de la cle</source>
         <translation>Enter the save file&apos;s name of key</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="568"/>
+        <location filename="../mainwindow.cpp" line="579"/>
         <source>message: </source>
         <translation>message: </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="701"/>
+        <source>Selectionner le fichier dont vous voulrz le hash Sha1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="703"/>
+        <source>fichier : </source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source> caracteres | Cle: </source>
         <translation type="vanished"> characters | Key: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="568"/>
-        <location filename="../mainwindow.cpp" line="574"/>
+        <location filename="../mainwindow.cpp" line="579"/>
+        <location filename="../mainwindow.cpp" line="585"/>
         <source> caracteres</source>
         <translation> characters</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="574"/>
+        <location filename="../mainwindow.cpp" line="585"/>
         <source>Cle: </source>
         <translation>Key :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="600"/>
+        <location filename="../mainwindow.cpp" line="611"/>
         <source>quitter ?</source>
         <translation>quit ?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="618"/>
         <source>contact</source>
         <translation>contact</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="610"/>
+        <location filename="../mainwindow.cpp" line="621"/>
         <source>A propos</source>
         <translation>About</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="610"/>
+        <location filename="../mainwindow.cpp" line="621"/>
         <source>logiciel de chiffrement utilisant &lt;br&gt;le chiffre de Vernam sous licence libre&lt;br&gt;&lt;br&gt;</source>
         <translation>Encryption software using &lt;br&gt;from Vernam under free license&lt;br&gt;based on Qt&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="611"/>
+        <location filename="../mainwindow.cpp" line="622"/>
         <source>Fait par :</source>
         <translation>made by</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="75"/>
+        <location filename="../mainwindow.h" line="81"/>
         <source>la clé doivent avoir au moins le meme nombre de lettre que le message</source>
         <translation>The key must have at least the same number of letters as the message</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="76"/>
+        <location filename="../mainwindow.h" line="82"/>
         <source>Attention ! cette clé a déjá été utilisé</source>
         <translation>Warning ! this key has been already use</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="408"/>
-        <location filename="../mainwindow.h" line="77"/>
+        <location filename="../mainwindow.h" line="83"/>
         <source>Message Clair :</source>
         <translation>Clear Message :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="78"/>
+        <location filename="../mainwindow.h" line="84"/>
         <source>Message Chiffre :</source>
         <translation>Encrypted Message:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="840"/>
-        <location filename="../mainwindow.h" line="79"/>
+        <location filename="../mainwindow.ui" line="856"/>
+        <location filename="../mainwindow.h" line="85"/>
         <source>Resultat du Chiffrement :</source>
         <translation>Result of Encryption</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="80"/>
+        <location filename="../mainwindow.h" line="86"/>
         <source>Resultat du Dechiffrement :</source>
         <translation>Result of Decryption</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="820"/>
+        <location filename="../mainwindow.ui" line="836"/>
         <source>DeChiffrer</source>
         <translation>Decrypt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="773"/>
+        <location filename="../mainwindow.ui" line="789"/>
         <source>Chiffrer</source>
         <translation>encrypt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="83"/>
+        <location filename="../mainwindow.h" line="89"/>
         <source>le prochain caractere doit etre une lettre</source>
         <translation>The next charater must to be a letter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="84"/>
+        <location filename="../mainwindow.h" line="90"/>
         <source>le prochain caractere doit etre un chiffre</source>
         <translation>The next charater must to be a number</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="85"/>
+        <location filename="../mainwindow.h" line="91"/>
         <source>la cle respecte les normes</source>
         <translation>The key respect Standard</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="86"/>
+        <location filename="../mainwindow.h" line="92"/>
         <source>verifier votre chaine
 que les lettres cryptent les lettres
 et les chiffres, les chiffres</source>
@@ -430,49 +450,21 @@ that the letters proccess the letters
 and the numbers, the numbers</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="87"/>
+        <location filename="../mainwindow.h" line="93"/>
         <source>Taper du texte a chiffrer puis la cle</source>
         <translation>Edit text to proccess then the key</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="600"/>
+        <location filename="../mainwindow.cpp" line="611"/>
         <source>&lt;center&gt;Etes vous sur de vouloir quitter l&apos;application&lt;/center&gt;</source>
         <translation>&lt;center&gt;are you sure to want quit the application ?&lt;/center&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.h" line="88"/>
+        <location filename="../mainwindow.h" line="94"/>
         <source>Contacter nous a l&apos;adresse mail
 fbemmo.megasoft@gmail.com</source>
         <translation>contact us at the mail address
 fbemmo.megasoft@gmail.com</translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <location filename="../wizardfichier.h" line="59"/>
-        <source>Bienvenue dans l&apos;assistance de chiffrement de fichier&lt;br&gt;&lt;br&gt; Cliquer sur &quot;suivant&quot; pour continuer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../wizardfichier.h" line="60"/>
-        <source>Veuillez choisir le fichier a chiffrer :&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../wizardfichier.h" line="63"/>
-        <source>Bienvenue dans l&apos;assistance de dechiffrement de fichier&lt;br&gt;&lt;br&gt; Cliquer sur &quot;suivant&quot; pour continuer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../wizardfichier.h" line="64"/>
-        <source>Veuillez choisir le fichier servant de cle :&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../wizardfichier.h" line="65"/>
-        <source>Veuillez choisir le fichier crypte :&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -490,15 +482,15 @@ fbemmo.megasoft@gmail.com</translation>
     <message>
         <location filename="../wizardFichier.cpp" line="54"/>
         <location filename="../wizardFichier.cpp" line="72"/>
-        <location filename="../wizardFichier.cpp" line="278"/>
-        <location filename="../wizardFichier.cpp" line="300"/>
-        <location filename="../wizardFichier.cpp" line="322"/>
+        <location filename="../wizardFichier.cpp" line="291"/>
+        <location filename="../wizardFichier.cpp" line="313"/>
+        <location filename="../wizardFichier.cpp" line="335"/>
         <source>parcourir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../wizardFichier.cpp" line="64"/>
-        <location filename="../wizardFichier.cpp" line="314"/>
+        <location filename="../wizardFichier.cpp" line="327"/>
         <source>Choix de la destination</source>
         <translation type="unfinished"></translation>
     </message>
@@ -534,123 +526,148 @@ fbemmo.megasoft@gmail.com</translation>
     </message>
     <message>
         <location filename="../wizardFichier.cpp" line="128"/>
-        <location filename="../wizardFichier.cpp" line="165"/>
-        <location filename="../wizardFichier.cpp" line="357"/>
-        <location filename="../wizardFichier.cpp" line="371"/>
-        <location filename="../wizardFichier.cpp" line="385"/>
+        <location filename="../wizardFichier.cpp" line="178"/>
+        <location filename="../wizardFichier.cpp" line="370"/>
+        <location filename="../wizardFichier.cpp" line="384"/>
+        <location filename="../wizardFichier.cpp" line="398"/>
         <source>champ vide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../wizardFichier.cpp" line="128"/>
-        <location filename="../wizardFichier.cpp" line="165"/>
-        <location filename="../wizardFichier.cpp" line="357"/>
-        <location filename="../wizardFichier.cpp" line="371"/>
-        <location filename="../wizardFichier.cpp" line="385"/>
+        <location filename="../wizardFichier.cpp" line="178"/>
+        <location filename="../wizardFichier.cpp" line="370"/>
+        <location filename="../wizardFichier.cpp" line="384"/>
+        <location filename="../wizardFichier.cpp" line="398"/>
         <source>Veullez remplir le champ pour continuer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../wizardFichier.cpp" line="134"/>
-        <location filename="../wizardFichier.cpp" line="154"/>
-        <location filename="../wizardFichier.cpp" line="172"/>
-        <location filename="../wizardFichier.cpp" line="364"/>
-        <location filename="../wizardFichier.cpp" line="378"/>
+        <location filename="../wizardFichier.cpp" line="167"/>
+        <location filename="../wizardFichier.cpp" line="185"/>
+        <location filename="../wizardFichier.cpp" line="377"/>
         <location filename="../wizardFichier.cpp" line="391"/>
-        <location filename="../wizardFichier.cpp" line="409"/>
+        <location filename="../wizardFichier.cpp" line="404"/>
+        <location filename="../wizardFichier.cpp" line="422"/>
         <source>erreur</source>
         <translation type="unfinished">error</translation>
     </message>
     <message>
         <location filename="../wizardFichier.cpp" line="134"/>
-        <location filename="../wizardFichier.cpp" line="391"/>
+        <location filename="../wizardFichier.cpp" line="404"/>
         <source>Le repertoire indique n&apos;est pas lisible</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="151"/>
+        <location filename="../wizardFichier.cpp" line="164"/>
         <source>cryptage termine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="151"/>
+        <location filename="../wizardFichier.cpp" line="164"/>
         <source>chiffrement effectue avec succes&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="152"/>
+        <location filename="../wizardFichier.cpp" line="165"/>
         <source>Le fichier chiffre et la cle de chiffrement sont enregistres aux chemins suivants :&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="172"/>
-        <location filename="../wizardFichier.cpp" line="364"/>
-        <location filename="../wizardFichier.cpp" line="378"/>
+        <location filename="../wizardFichier.cpp" line="185"/>
+        <location filename="../wizardFichier.cpp" line="377"/>
+        <location filename="../wizardFichier.cpp" line="391"/>
         <source>le fichier ne peut pas etre ouvert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="251"/>
+        <location filename="../wizardFichier.cpp" line="264"/>
         <source>Assistant de DeChiffrement de Fichier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="259"/>
+        <location filename="../wizardFichier.cpp" line="272"/>
         <source>Assistant de DeChiffrement de fichier</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="270"/>
+        <location filename="../wizardFichier.cpp" line="283"/>
         <source>Choix du fichier Cle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="287"/>
+        <location filename="../wizardFichier.cpp" line="300"/>
         <source>selectionner le fichier Cle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="292"/>
+        <location filename="../wizardFichier.cpp" line="305"/>
         <source>Choix du fichier Crypte</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="309"/>
+        <location filename="../wizardFichier.cpp" line="322"/>
         <source>selectionner le fichier Crypte</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="332"/>
+        <location filename="../wizardFichier.cpp" line="345"/>
         <source>selectionner le dossier de destination du fichier Clair</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="337"/>
+        <location filename="../wizardFichier.cpp" line="350"/>
         <source>Dechiffrement...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="406"/>
+        <location filename="../wizardFichier.cpp" line="419"/>
         <source>Dechiffrement termine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="406"/>
+        <location filename="../wizardFichier.cpp" line="419"/>
         <source>Dechiffrement effectue avec succes&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardFichier.cpp" line="407"/>
+        <location filename="../wizardFichier.cpp" line="420"/>
         <source>Le fichier en clair est enregistre au chemin suivant :&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardfichier.h" line="61"/>
-        <source>Veuillez choisir la destination du fichier crypter&lt;br&gt; et de la cle :&lt;br&gt;&lt;br&gt;</source>
+        <location filename="../wizardfichier.h" line="64"/>
+        <source>Bienvenue dans l&apos;assistance de chiffrement de fichier&lt;br&gt;&lt;br&gt; Cliquer sur &quot;suivant&quot; pour continuer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../wizardfichier.h" line="65"/>
+        <source>Veuillez choisir le fichier a chiffrer :&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../wizardfichier.h" line="66"/>
+        <source>Veuillez choisir la destination du fichier crypter&lt;br&gt; et de la cle :&lt;br&gt;&lt;br&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../wizardfichier.h" line="68"/>
+        <source>Bienvenue dans l&apos;assistance de dechiffrement de fichier&lt;br&gt;&lt;br&gt; Cliquer sur &quot;suivant&quot; pour continuer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../wizardfichier.h" line="69"/>
+        <source>Veuillez choisir le fichier servant de cle :&lt;br&gt;&lt;br&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../wizardfichier.h" line="70"/>
+        <source>Veuillez choisir le fichier crypte :&lt;br&gt;&lt;br&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../wizardfichier.h" line="71"/>
         <source>Veuillez choisir la destination du fichier clair :&lt;br&gt;&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>

@@ -80,10 +80,14 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
 
     // init Wizard
     wizs = new WizardFichier();
+
     connect(ui->actionChiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_Chif(),SLOT(exec()));
     connect(ui->actionDechiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_DeChif(),SLOT(exec()));
+
     //Brouiller
     connect(ui->but_Brouil,SIGNAL(clicked()),this,SLOT(toggleBrouil()));
+    //Hash
+    connect(ui->actionCalculer_Hash,SIGNAL(triggered()),this,SLOT(actCalculer_Hash()));
     //init
     update_statusBar();
         //graphique
@@ -644,6 +648,10 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event) {
     int k=0;
     QString cleActuel = ui->ptex_key->toPlainText().simplified().remove(" ");
 
+    if(cleActuel.isEmpty()) {
+        ui->progBar_Brouilleur->setValue(100);
+        return;
+    }
     if (BrouilleurActive) {
         if (x>=oldX && y>=oldY) k=0;
         else if (x>=oldX && y<oldY) k=1;
@@ -682,9 +690,16 @@ void MainWindow::toggleBrouil() {
         ui->ptex_traite->setEnabled(false);
         ui->lab_deco->movie()->stop();
         ui->progBar_Brouilleur->show();
-
-        ui->lab_avert->setStyleSheet("color: blue");
+        if(ui->actionDark_mode->isChecked()) ui->lab_avert->setStyleSheet("color: lightblue");
+        else ui->lab_avert->setStyleSheet("color: blue");
         ui->lab_avert->setText(brouilleur_indication);
         ui->lab_avert->show();
     }
+}
+
+void MainWindow::actCalculer_Hash() {
+    QString filename = QFileDialog::getOpenFileName(this,tr("Selectionner le fichier dont vous voulrz le hash Sha1"));
+    if(filename.isEmpty()) return;
+    QMessageBox::information(this,"hash Sha1",tr("fichier : ")+filename+"<br><br>Hash Sha-1 : <b>"+
+                             WizardFichier::calcul_shasum(filename) +"</b>");
 }

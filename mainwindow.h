@@ -21,6 +21,7 @@ extern "C" {
 #include <QMovie>
 #include <QKeyEvent>
 
+
 #include <wizardfichier.h>
 #include <history.h>
 
@@ -45,6 +46,7 @@ public:
     void postTraitement();
     void update_statusBar();
     bool correspond();
+
 
 public slots:
     void genCle();
@@ -72,6 +74,7 @@ public slots:
     void montrer_avert_noSave();
 
     void toggleBrouil();
+    void actCalculer_Hash();
 private:
     Ui::MainWindow *ui;
     HistoryDialog *hisDial;

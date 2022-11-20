@@ -146,11 +146,24 @@ void WizardFichier::onChiff_currentIdChange(int i) {
                 strcpy(nomDestination,(pathDest+QString("/Crypt_")+ shortName).toUtf8().data());
 
         genCle_bin_REMAKE(nomfichier,nomCle);
+        //Hash
+        QFile fileHash(pathDest+"/Hash_"+shortName+".txt");
+        if (fileHash.open(QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream in(&fileHash);
+            QString hashCrypt = calcul_shasum(pathDest+"/Crypt_"+ shortName);
+            QString hashCle = calcul_shasum((pathDest+"/Cle_"+shortName));
+
+            in << "--------------fichier contenant des Hash SHA-1-------------" << '\n' << '\n'
+               << pathDest << "/Crypt_" << shortName.toUtf8().data() << " : " << '\n' << '\t' << hashCrypt << '\n' << '\n'
+               << pathDest << "/Cle_" << shortName.toUtf8().data() << " : " << '\n' << '\t' << hashCle;
+            in.flush();
+            fileHash.close();
+        }
 
         if(encrypt_bin_REMAKE(nomfichier,nomCle,nomDestination)){
             QMessageBox::information(&wiz_chiff,tr("cryptage termine"),tr("chiffrement effectue avec succes<br>")
                                                                           +tr("Le fichier chiffre et la cle de chiffrement sont enregistres aux chemins suivants :<br><br>")
-                                                                          +"<b>"+nomDestination+"<br>"+nomCle+"</b>");
+                                                                          +"<b>"+nomDestination+"<br>"+nomCle+"<br>"+fileHash.fileName()+"</b>");
         }else QMessageBox::critical(&wiz_chiff,tr("erreur"),"un probleme est survenu");
 
         free(nomfichier);
@@ -450,3 +463,13 @@ int WizardFichier::decrypt_bin_REMAKE(const char* nomfichier, const char* nomCle
     fclose(file);fclose(cle);fclose(crypt);
     return true;
 }
+
+QString WizardFichier::calcul_shasum(const QString filename, char separateur){
+    QFile file(filename);
+    if(file.open(QIODevice::ReadOnly)){
+        QByteArray hash = QCryptographicHash::hash(file.readAll(),QCryptographicHash::Sha1);
+        file.close();
+        return hash.toHex(separateur);
+    }else return "";
+}
+

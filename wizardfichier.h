@@ -15,6 +15,8 @@
 #include <QRandomGenerator>
 #include <QDir>
 #include <QWidget>
+#include <QCryptographicHash>
+#include <QTextStream>
 
 class WizardFichier: public QObject
 {
@@ -25,6 +27,9 @@ public:
         initWizard_chif();
         initWizard_deChif();
     }
+
+    static QString calcul_shasum(const QString filename,char separateur=' ');
+
     QWizardPage* chiff_createIntro();
     QWizardPage* chiff_createChoiseFile();
     QWizardPage* chiff_createFinal();
@@ -56,13 +61,13 @@ public slots:
 
 private:
     //assistant text
-    const QString chiff_text_intro = QObject::tr("Bienvenue dans l'assistance de chiffrement de fichier<br><br> Cliquer sur \"suivant\" pour continuer");
-    const QString chiff_choise = QObject::tr("Veuillez choisir le fichier a chiffrer :<br><br>");
+    const QString chiff_text_intro = tr("Bienvenue dans l'assistance de chiffrement de fichier<br><br> Cliquer sur \"suivant\" pour continuer");
+    const QString chiff_choise = tr("Veuillez choisir le fichier a chiffrer :<br><br>");
     const QString chiff_choiceDest = tr("Veuillez choisir la destination du fichier crypter<br> et de la cle :<br><br>");
 
-    const QString dechiff_text_intro = QObject::tr("Bienvenue dans l'assistance de dechiffrement de fichier<br><br> Cliquer sur \"suivant\" pour continuer");
-    const QString dechiff_choiseKey = QObject::tr("Veuillez choisir le fichier servant de cle :<br><br>");
-    const QString dechiff_choiseFile = QObject::tr("Veuillez choisir le fichier crypte :<br><br>");
+    const QString dechiff_text_intro = tr("Bienvenue dans l'assistance de dechiffrement de fichier<br><br> Cliquer sur \"suivant\" pour continuer");
+    const QString dechiff_choiseKey = tr("Veuillez choisir le fichier servant de cle :<br><br>");
+    const QString dechiff_choiseFile = tr("Veuillez choisir le fichier crypte :<br><br>");
     const QString dechiff_choiceDest = tr("Veuillez choisir la destination du fichier clair :<br><br>");
     //
 
