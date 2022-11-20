@@ -352,8 +352,9 @@ void MainWindow::crypter(){ // Crypter le message et afficher le resultat
     char* c;
 
     for(int i=0; i< aChiff.size();i++){
-
-        c = vernam_chiffrer((QString() + aChiff.at(i)).toUtf8().data(),
+        if (ui->actionA_1->isChecked())        c = vernam_chiffrer_1((QString() + aChiff.at(i)).toUtf8().data(),
+                                                                   (QString()+key.at(i)).toUtf8().data());
+        else c = vernam_chiffrer((QString() + aChiff.at(i)).toUtf8().data(),
                                  (QString()+key.at(i)).toUtf8().data());
 
         ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString::fromUtf8(c,sizeof(char)));
@@ -379,8 +380,9 @@ void MainWindow::decrypter(){ // DeCrypter le message et afficher le resultat
     char* c;
 
     for(int i=0; i< aDeChiff.size();i++){
-
-        c = vernam_dechiffrer((QString() + aDeChiff.at(i)).toUtf8().data(),
+        if (ui->actionA_1->isChecked())         c = vernam_dechiffrer_1((QString() + aDeChiff.at(i)).toUtf8().data(),
+                                                                      (QString()+key.at(i)).toUtf8().data());
+        else c = vernam_dechiffrer((QString() + aDeChiff.at(i)).toUtf8().data(),
                               (QString()+key.at(i)).toUtf8().data());
 
         ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString::fromUtf8(c,sizeof(char)));
@@ -445,6 +447,8 @@ void MainWindow::toggle_lang(){
     if(ui->actionAnglais->isChecked()) {
         lang_fr();
     }else lang_en();
+    wizs->initWizard_chif();
+    wizs->initWizard_deChif();
 }
 void MainWindow::lang_fr() {
     ui->actionFrancais->setChecked(true);

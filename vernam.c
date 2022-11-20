@@ -177,6 +177,41 @@ int mod26(int number){
 
 }
 
+char* vernam_chiffrer_1(char* texte,char* cle) {// chriffre le message grace a la cle
+    if(!vernam_apte(texte,cle)) return NULL;;
+    size_t len = strlen(cle);
+    char num_l=0;
+    char* result = (char*)malloc(sizeof(char)*len+1);
+    for(size_t i=0;i< len;i++){
+        if(texte[i]==' ' || cle[i]==' ') continue;
+        if(isNumber(texte[i]) && isNumber(cle[i])) result[i] = vernam_chiffrer_chiffre(texte[i],cle[i]);
+        else {
+            texte[i] = toupper(texte[i]); cle[i] = toupper(cle[i]);
+            num_l = ASCII_to_numLettre(texte[i]) + ASCII_to_numLettre(cle[i]);
+            result[i] = lettre_to_ascii(mod26(num_l))+1;
+        }
+    }
+    result[len] = '\0';
+    return result;
+}
+char* vernam_dechiffrer_1(char* texte,char* cle) {// dechriffre le message grace a la cle
+    if(!vernam_apte(texte,cle)) return NULL;
+
+    size_t len = strlen(cle);
+    char num_l=0;
+    char* result = (char*)malloc(sizeof(char)*len+1);
+    for(size_t i=0;i< len;i++){
+        if(texte[i]==' ' || cle[i]==' ') continue;
+        if(isNumber(texte[i]) && isNumber(cle[i])) result[i] = vernam_dechiffrer_chiffre(texte[i],cle[i]);
+        else{
+            texte[i] = toupper(texte[i]); cle[i] = toupper(cle[i]);
+            num_l = ASCII_to_numLettre(texte[i]) - ASCII_to_numLettre(cle[i]);
+            result[i] = lettre_to_ascii(mod26(num_l))+1;
+        }
+    }
+    result[len] = '\0';
+    return result;
+}
 
 char* vernam_xor(char* texte,char* cle) {// dechriffre le message grace a la cle
     if(!vernam_apte(texte,cle)) return NULL;

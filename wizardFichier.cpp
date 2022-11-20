@@ -32,7 +32,7 @@ QString extFileName(QString fileName) {
 
 QWizardPage* WizardFichier::chiff_createIntro(){
     QWizardPage *intro = new QWizardPage();
-    intro->setTitle(QObject::tr("Assistant de Chiffrement de fichier"));
+    intro->setTitle(tr("Assistant de Chiffrement de fichier"));
     QVBoxLayout *lay = new QVBoxLayout();
     intro->setLayout(lay);
     QLabel *lab_textIntro = new QLabel(chiff_text_intro);
@@ -43,7 +43,7 @@ QWizardPage* WizardFichier::chiff_createIntro(){
 
 QWizardPage* WizardFichier::chiff_createChoiseFile() {
   QWizardPage* chFile = new QWizardPage();
-  chFile->setTitle(QObject::tr("Choix du fichier"));
+  chFile->setTitle(tr("Choix du fichier"));
   QVBoxLayout *lay = new QVBoxLayout();
   chFile->setLayout(lay);
   QLabel *lab_choiseFile = new QLabel(chiff_choise);
@@ -51,7 +51,7 @@ QWizardPage* WizardFichier::chiff_createChoiseFile() {
   QHBoxLayout *lay_path = new QHBoxLayout();
   edit_path = new QLineEdit();
 
-  QPushButton *but_path = new QPushButton(QObject::tr("parcourir"));
+  QPushButton *but_path = new QPushButton(tr("parcourir"));
   connect(but_path,SIGNAL(clicked()),this,SLOT(onChiff_butPath()));
 
   lay_path->addWidget(edit_path);lay_path->addWidget(but_path);
@@ -61,7 +61,7 @@ QWizardPage* WizardFichier::chiff_createChoiseFile() {
 }
 QWizardPage* WizardFichier::chiff_createDestChoice() {
     QWizardPage* chDir = new QWizardPage();
-    chDir->setTitle(QObject::tr("Choix de la destination"));
+    chDir->setTitle(tr("Choix de la destination"));
     QVBoxLayout *lay = new QVBoxLayout();
     chDir->setLayout(lay);
     QLabel *lab_choiceDir = new QLabel(chiff_choiceDest);
@@ -69,7 +69,7 @@ QWizardPage* WizardFichier::chiff_createDestChoice() {
     QHBoxLayout *lay_path = new QHBoxLayout();
     edit_pathDest = new QLineEdit();
 
-    QPushButton *but_path = new QPushButton(QObject::tr("parcourir"));
+    QPushButton *but_path = new QPushButton(tr("parcourir"));
     connect(but_path,SIGNAL(clicked()),this,SLOT(onChiff_butPathDest()));
 
     lay_path->addWidget(edit_pathDest);lay_path->addWidget(but_path);
@@ -110,7 +110,7 @@ void WizardFichier::initWizard_chif() {
     wiz_chiff.addPage(chiff_createDestChoice());
     wiz_chiff.addPage(chiff_createFinal());
 
-    wiz_chiff.setWindowTitle(QObject::tr("Assistant de Chiffrement de Fichier"));
+    wiz_chiff.setWindowTitle(tr("Assistant de Chiffrement de Fichier"));
     QPixmap watermark = QPixmap("images/logo_long_vert.jpg");
     wiz_chiff.setPixmap(QWizard::WatermarkPixmap, watermark);
     connect(&wiz_chiff,SIGNAL(currentIdChanged(int)),this,SLOT(onChiff_currentIdChange(int)));
@@ -248,7 +248,7 @@ void WizardFichier::initWizard_deChif() {
     wiz_dechiff.addPage(dechiff_createDestChoice());
     wiz_dechiff.addPage(dechiff_createFinal());
 
-    wiz_dechiff.setWindowTitle(QObject::tr("Assistant de DeChiffrement de Fichier"));
+    wiz_dechiff.setWindowTitle(tr("Assistant de DeChiffrement de Fichier"));
     QPixmap watermark = QPixmap("images/logo_long_vert.jpg");
     wiz_dechiff.setPixmap(QWizard::WatermarkPixmap, watermark);
     connect(&wiz_dechiff,SIGNAL(currentIdChanged(int)),this,SLOT(onDeChiff_currentIdChange(int)));
@@ -256,7 +256,7 @@ void WizardFichier::initWizard_deChif() {
 
 QWizardPage* WizardFichier::dechiff_createIntro(){
     QWizardPage *intro = new QWizardPage();
-    intro->setTitle(QObject::tr("Assistant de DeChiffrement de fichier"));
+    intro->setTitle(tr("Assistant de DeChiffrement de fichier"));
     QVBoxLayout *lay = new QVBoxLayout();
     intro->setLayout(lay);
     QLabel *lab_textIntro = new QLabel(dechiff_text_intro);
@@ -267,7 +267,7 @@ QWizardPage* WizardFichier::dechiff_createIntro(){
 
 QWizardPage* WizardFichier::dechiff_createChoiseKey() {
   QWizardPage* chFile = new QWizardPage();
-  chFile->setTitle(QObject::tr("Choix du fichier Cle"));
+  chFile->setTitle(tr("Choix du fichier Cle"));
   QVBoxLayout *lay = new QVBoxLayout();
   chFile->setLayout(lay);
   QLabel *lab_choiseFile = new QLabel(dechiff_choiseKey);
@@ -275,7 +275,7 @@ QWizardPage* WizardFichier::dechiff_createChoiseKey() {
   QHBoxLayout *lay_path = new QHBoxLayout();
   dechif_edit_pathKey = new QLineEdit();
 
-  QPushButton *but_path = new QPushButton(QObject::tr("parcourir"));
+  QPushButton *but_path = new QPushButton(tr("parcourir"));
   connect(but_path,SIGNAL(clicked()),this,SLOT(onDechiff_butPathKey()));
 
   lay_path->addWidget(dechif_edit_pathKey);lay_path->addWidget(but_path);
@@ -289,7 +289,7 @@ void WizardFichier::onDechiff_butPathKey(){
 
 QWizardPage* WizardFichier::dechiff_createChoiseFile() {
   QWizardPage* chFile = new QWizardPage();
-  chFile->setTitle(QObject::tr("Choix du fichier Crypte"));
+  chFile->setTitle(tr("Choix du fichier Crypte"));
   QVBoxLayout *lay = new QVBoxLayout();
   chFile->setLayout(lay);
   QLabel *lab_choiseFile = new QLabel(dechiff_choiseFile);
@@ -297,7 +297,7 @@ QWizardPage* WizardFichier::dechiff_createChoiseFile() {
   QHBoxLayout *lay_path = new QHBoxLayout();
   dechif_edit_pathFile = new QLineEdit();
 
-  QPushButton *but_path = new QPushButton(QObject::tr("parcourir"));
+  QPushButton *but_path = new QPushButton(tr("parcourir"));
   connect(but_path,SIGNAL(clicked()),this,SLOT(onDechiff_butPathFile()));
 
   lay_path->addWidget(dechif_edit_pathFile);lay_path->addWidget(but_path);
@@ -311,7 +311,7 @@ void WizardFichier::onDechiff_butPathFile(){
 
 QWizardPage* WizardFichier::dechiff_createDestChoice() {
     QWizardPage* chDir = new QWizardPage();
-    chDir->setTitle(QObject::tr("Choix de la destination"));
+    chDir->setTitle(tr("Choix de la destination"));
     QVBoxLayout *lay = new QVBoxLayout();
     chDir->setLayout(lay);
     QLabel *lab_choiceDir = new QLabel(dechiff_choiceDest);
@@ -319,7 +319,7 @@ QWizardPage* WizardFichier::dechiff_createDestChoice() {
     QHBoxLayout *lay_path = new QHBoxLayout();
     dechif_edit_pathDest = new QLineEdit();
 
-    QPushButton *but_path = new QPushButton(QObject::tr("parcourir"));
+    QPushButton *but_path = new QPushButton(tr("parcourir"));
     connect(but_path,SIGNAL(clicked()),this,SLOT(onDechiff_butPathDest()));
 
     lay_path->addWidget(dechif_edit_pathDest);lay_path->addWidget(but_path);
