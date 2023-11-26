@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "historydialog.h"
 
 #include <QApplication>
 
@@ -24,6 +23,13 @@ int main(int argc, char *argv[])
 //    QApplication::setStyle("gtk");
 
     QApplication a(argc, argv);
+
+    QCoreApplication::setOrganizationName("BemsProduction");
+    QCoreApplication::setOrganizationDomain("bemmoFulbert@gmail.com");
+    QCoreApplication::setApplicationName("Vernam");
+
+    QIcon::setFallbackSearchPaths(QStringList("images/iconsTheme"));
+    QIcon::setThemeName("Ubuntu");
 
     QLocale::setDefault(QLocale(QLocale::French,QLocale::France));
     initLanguage(a);

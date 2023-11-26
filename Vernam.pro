@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    helpdialog.cpp \
     history.cpp \
     historydialog.cpp \
     main.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     wizardFichier.cpp
 
 HEADERS += \
+    helpdialog.h \
     history.h \
     historydialog.h \
     mainwindow.h \
@@ -24,6 +26,7 @@ HEADERS += \
     wizardfichier.h
 
 FORMS += \
+    helpdialog.ui \
     historydialog.ui \
     mainwindow.ui
 
@@ -51,4 +54,4 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
     ANDROID_PACKAGE_SOURCE_DIR = \
         $$PWD/android
 }
-
+RC_ICONS = ico.ico

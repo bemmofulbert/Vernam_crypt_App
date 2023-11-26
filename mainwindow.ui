@@ -21,7 +21,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../Documents/qt/Vernam/ico.png</normaloff>../../Documents/qt/Vernam/ico.png</iconset>
+    <normaloff>ico.ico</normaloff>ico.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -67,7 +67,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>14</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="tabletTracking">
@@ -111,6 +111,11 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Effacer le contenu de tous les champs</string>
         </property>
@@ -131,6 +136,11 @@
       </item>
       <item>
        <widget class="Line" name="line_4">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -149,6 +159,11 @@
           <width>30</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="toolTip">
          <string>zoomer</string>
@@ -182,6 +197,11 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="toolTip">
          <string>dezoomer</string>
         </property>
@@ -202,6 +222,11 @@
       </item>
       <item>
        <widget class="Line" name="line_5">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -214,6 +239,11 @@
           <width>30</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string/>
@@ -230,6 +260,11 @@
           <width>30</width>
           <height>16777215</height>
          </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="toolTip">
          <string>Activer/desactiver le Dark Mode</string>
@@ -251,6 +286,11 @@
       </item>
       <item>
        <spacer name="horizontalSpacer">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -276,22 +316,17 @@
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="Line" name="line">
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
     </item>
     <item>
      <widget class="QGroupBox" name="groupBox">
@@ -306,6 +341,11 @@
         <width>0</width>
         <height>40</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="toolTip">
        <string>Doit-on chiffrer le texte ou le dechiffrer</string>
@@ -348,6 +388,8 @@
        </property>
        <property name="font">
         <font>
+         <pointsize>12</pointsize>
+         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -387,6 +429,8 @@
        </property>
        <property name="font">
         <font>
+         <pointsize>12</pointsize>
+         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -403,7 +447,27 @@
      </widget>
     </item>
     <item>
+     <widget class="Line" name="line">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QLabel" name="lab_mes">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Message Clair :</string>
       </property>
@@ -433,6 +497,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Ouvrir un fichier</string>
           </property>
@@ -453,6 +522,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Enregistrer</string>
           </property>
@@ -469,6 +543,11 @@
       </item>
       <item>
        <widget class="QPlainTextEdit" name="ptex_mes">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Message a traiter</string>
         </property>
@@ -504,6 +583,11 @@
             <width>50</width>
             <height>0</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
           </property>
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
@@ -543,6 +627,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Copier</string>
           </property>
@@ -561,6 +650,11 @@
     </item>
     <item>
      <widget class="Line" name="line_2">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -570,6 +664,8 @@
      <widget class="QLabel" name="lab_avert">
       <property name="font">
        <font>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
         <italic>true</italic>
         <bold>true</bold>
        </font>
@@ -584,6 +680,11 @@
     </item>
     <item>
      <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Clé :</string>
       </property>
@@ -613,6 +714,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Ouvrir un fichier</string>
           </property>
@@ -633,6 +739,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Enregistrer la Cle</string>
           </property>
@@ -649,6 +760,11 @@
       </item>
       <item>
        <widget class="QPlainTextEdit" name="ptex_key">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Cle</string>
         </property>
@@ -685,6 +801,11 @@
             <height>0</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Effacer</string>
           </property>
@@ -714,6 +835,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Copier</string>
           </property>
@@ -734,11 +860,17 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="text">
            <string/>
           </property>
           <property name="icon">
-           <iconset theme="input-mouse"/>
+           <iconset theme="input-mouse">
+            <normaloff>.</normaloff>.</iconset>
           </property>
          </widget>
         </item>
@@ -773,7 +905,7 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="cursor">
@@ -804,7 +936,7 @@
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>14</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -832,6 +964,11 @@
       </item>
       <item>
        <widget class="QPushButton" name="but_deChiff">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>DeChiffrer</string>
         </property>
@@ -845,6 +982,11 @@
     </item>
     <item>
      <widget class="Line" name="line_3">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -852,8 +994,13 @@
     </item>
     <item>
      <widget class="QLabel" name="lab_result">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>Resultat du Chiffrement :</string>
+       <string>Resultat du Chiffrement : </string>
       </property>
       <property name="buddy">
        <cstring>ptex_traite</cstring>
@@ -881,6 +1028,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Enregistrer</string>
           </property>
@@ -897,6 +1049,11 @@
       </item>
       <item>
        <widget class="QPlainTextEdit" name="ptex_traite">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="toolTip">
          <string>Texte Resultat</string>
         </property>
@@ -945,6 +1102,11 @@
             <height>0</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Effacer</string>
           </property>
@@ -974,6 +1136,11 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="toolTip">
            <string>Copier</string>
           </property>
@@ -992,8 +1159,13 @@
     </item>
     <item>
      <widget class="QProgressBar" name="progBar_Brouilleur">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="value">
-       <number>24</number>
+       <number>100</number>
       </property>
      </widget>
     </item>
@@ -1005,7 +1177,7 @@
      <x>0</x>
      <y>0</y>
      <width>785</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="nativeMenuBar">
@@ -1033,7 +1205,6 @@
     </property>
     <addaction name="actionChiffrer_deChiffrer"/>
     <addaction name="actionActiver_la_sauvegarde_des_Cl_s"/>
-    <addaction name="actionA_1"/>
     <addaction name="actionHistorique_des_Cl_s"/>
     <addaction name="actionTout_effacer"/>
     <addaction name="separator"/>
@@ -1096,6 +1267,9 @@
    <property name="text">
     <string>Consulter l'aide</string>
    </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
   </action>
   <action name="actionQuitter">
    <property name="text">
@@ -1106,15 +1280,24 @@
    <property name="text">
     <string>Tout effacer</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Del</string>
+   </property>
   </action>
   <action name="actionHistorique_des_Cl_s">
    <property name="text">
     <string>Historique des Clés</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
   </action>
   <action name="actionChiffrer_deChiffrer">
    <property name="text">
     <string>Chiffrer/deChiffrer</string>
+   </property>
+   <property name="shortcut">
+    <string>T</string>
    </property>
   </action>
   <action name="actionA_Propos">
@@ -1129,15 +1312,24 @@
    <property name="text">
     <string>Dark mode</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
   </action>
   <action name="actionZoomer">
    <property name="text">
     <string>Zoomer</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+=</string>
+   </property>
   </action>
   <action name="actionDezoomer">
    <property name="text">
     <string>Dezoomer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
    </property>
   </action>
   <action name="actionFrancais">
@@ -1174,10 +1366,16 @@
    <property name="text">
     <string>Chiffrer un fichier</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
   </action>
   <action name="actionDechiffrer_un_fichier">
    <property name="text">
     <string>Dechiffrer un fichier</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
    </property>
   </action>
   <action name="actionTraitement_XOR">
@@ -1193,12 +1391,15 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>A = 1</string>
+    <string>Traitement avec XOR</string>
    </property>
   </action>
   <action name="actionCalculer_Hash">
    <property name="text">
     <string>Calculer Hash Sha-1</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
    </property>
   </action>
  </widget>

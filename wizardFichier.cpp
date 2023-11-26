@@ -31,18 +31,18 @@ QString extFileName(QString fileName) {
 }
 
 QWizardPage* WizardFichier::chiff_createIntro(){
-    QWizardPage *intro = new QWizardPage();
+    QWizardPage *intro = new QWizardPage(&wiz_chiff);
     intro->setTitle(tr("Assistant de Chiffrement de fichier"));
-    QVBoxLayout *lay = new QVBoxLayout();
+    QVBoxLayout *lay = new QVBoxLayout(intro);
     intro->setLayout(lay);
-    QLabel *lab_textIntro = new QLabel(chiff_text_intro);
+    QLabel *lab_textIntro = new QLabel(chiff_text_intro,intro);
     lay->addWidget(lab_textIntro);
 
     return intro;
 }
 
 QWizardPage* WizardFichier::chiff_createChoiseFile() {
-  QWizardPage* chFile = new QWizardPage();
+  QWizardPage* chFile = new QWizardPage(&wiz_chiff);
   chFile->setTitle(tr("Choix du fichier"));
   QVBoxLayout *lay = new QVBoxLayout();
   chFile->setLayout(lay);
@@ -60,7 +60,7 @@ QWizardPage* WizardFichier::chiff_createChoiseFile() {
   return chFile;
 }
 QWizardPage* WizardFichier::chiff_createDestChoice() {
-    QWizardPage* chDir = new QWizardPage();
+    QWizardPage* chDir = new QWizardPage(&wiz_chiff);
     chDir->setTitle(tr("Choix de la destination"));
     QVBoxLayout *lay = new QVBoxLayout();
     chDir->setLayout(lay);
@@ -79,9 +79,9 @@ QWizardPage* WizardFichier::chiff_createDestChoice() {
     return chDir;
 }
 QWizardPage* WizardFichier::chiff_createFinal() {
-    QWizardPage* finPage = new QWizardPage();
+    QWizardPage* finPage = new QWizardPage(&wiz_chiff);
     finPage->setTitle(tr("Traitement..."));
-    QVBoxLayout *lay = new QVBoxLayout();
+    QVBoxLayout *lay = new QVBoxLayout(finPage);
     lay->setSpacing(60);
     finPage->setLayout(lay);
     QLabel *lab_gen = new QLabel(tr("Generation de cle..."));
@@ -113,6 +113,7 @@ void WizardFichier::initWizard_chif() {
     wiz_chiff.setWindowTitle(tr("Assistant de Chiffrement de Fichier"));
     QPixmap watermark = QPixmap("images/logo_long_vert.jpg");
     wiz_chiff.setPixmap(QWizard::WatermarkPixmap, watermark);
+    wiz_chiff.setWizardStyle(QWizard::ClassicStyle);
     connect(&wiz_chiff,SIGNAL(currentIdChanged(int)),this,SLOT(onChiff_currentIdChange(int)));
 }
 void WizardFichier::onChiff_butPath(){
@@ -150,8 +151,9 @@ void WizardFichier::onChiff_currentIdChange(int i) {
         QFile fileHash(pathDest+"/Hash_"+shortName+".txt");
         if (fileHash.open(QIODevice::WriteOnly | QIODevice::Text)){
             QTextStream in(&fileHash);
-            QString hashCrypt = calcul_shasum(pathDest+"/Crypt_"+ shortName);
+
             QString hashCle = calcul_shasum((pathDest+"/Cle_"+shortName));
+            QString hashCrypt = calcul_shasum(pathDest+"/Crypt_"+ shortName);
 
             in << "--------------fichier contenant des Hash SHA-1-------------" << '\n' << '\n'
                << pathDest << "/Crypt_" << shortName.toUtf8().data() << " : " << '\n' << '\t' << hashCrypt << '\n' << '\n'
@@ -264,6 +266,7 @@ void WizardFichier::initWizard_deChif() {
     wiz_dechiff.setWindowTitle(tr("Assistant de DeChiffrement de Fichier"));
     QPixmap watermark = QPixmap("images/logo_long_vert.jpg");
     wiz_dechiff.setPixmap(QWizard::WatermarkPixmap, watermark);
+    wiz_dechiff.setWizardStyle(QWizard::ClassicStyle);
     connect(&wiz_dechiff,SIGNAL(currentIdChanged(int)),this,SLOT(onDeChiff_currentIdChange(int)));
 }
 

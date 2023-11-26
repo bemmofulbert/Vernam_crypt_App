@@ -65,7 +65,7 @@ char vernam_apte(char* texte,char* cle){
     return TRUE;
 }
 
-
+//chiffrer chiffre
 char vernam_chiffrer_chiffre(char chiffre,char cle){// chriffre le message grace a la cle
     char num_l=0;
     char result;
@@ -75,6 +75,7 @@ char vernam_chiffrer_chiffre(char chiffre,char cle){// chriffre le message grace
     return result;
 }
 
+// Dechiffrer chiffre
 char vernam_dechiffrer_chiffre(char chiffre,char cle){// chriffre le message grace a la cle
     char num_l=0;
     char result;
@@ -84,6 +85,8 @@ char vernam_dechiffrer_chiffre(char chiffre,char cle){// chriffre le message gra
     return result;
 }
 
+
+// chiffrement alphabetique
 char* vernam_chiffrer(char* texte,char* cle) {// chriffre le message grace a la cle
     if(!vernam_apte(texte,cle)) return NULL;;
     size_t len = strlen(cle);
@@ -101,6 +104,8 @@ char* vernam_chiffrer(char* texte,char* cle) {// chriffre le message grace a la 
     result[len] = '\0';
     return result;
 }
+
+// dechiffrement alphabetique
 char* vernam_dechiffrer(char* texte,char* cle) {// dechriffre le message grace a la cle
     if(!vernam_apte(texte,cle)) return NULL;
 
@@ -119,12 +124,15 @@ char* vernam_dechiffrer(char* texte,char* cle) {// dechriffre le message grace a
     result[len] = '\0';
     return result;
 }
+
+//renvoie une lettre aleatoire
 unsigned char gen_char(){
     srand(time(NULL));
     unsigned char c = rand()%256;
     return c;
 }
 
+//genere un cle
 int genCle_bin(char* nomfichier,char* nomDestination) {
     FILE *file=NULL,*cle=NULL;
     file = fopen(nomfichier,"rb");
@@ -144,6 +152,7 @@ int genCle_bin(char* nomfichier,char* nomDestination) {
     return TRUE;
 }
 
+// crypte dechiffre fichier XOR
 int encrypt_decrypt_bin(char* nomfichier,char* nomCle,char* nomDestination) {
     FILE *file=NULL,*cle=NULL,*crypt=NULL;
     file= fopen(nomfichier,"rb");
@@ -156,7 +165,7 @@ int encrypt_decrypt_bin(char* nomfichier,char* nomCle,char* nomDestination) {
     int videKey = fread(&tempKey,sizeof(char),1,cle);
     if(vide == 0 || videKey == 0) return FALSE;
     do{
-        tempRes= temp ^ tempKey;
+        tempRes= temp ^ tempKey;//crypte decrypte XOR
         fwrite(&tempRes,sizeof(char),1,crypt);
     }while(fread(&temp,sizeof(char),1,file) && fread(&tempKey,sizeof(char),1,cle)!=0);
 
@@ -168,50 +177,24 @@ int mod(int number,int modAt){
     return (number % modAt);
 
 }
+int mod_1(int number,int modAt){
+    while(number < 1){ number +=modAt; }
+    return (number % modAt);
 
+}
 int mod10(int number){
     return mod(number,10);
 }
 int mod26(int number){
+    return mod_1(number,26);
+
+}
+
+int mod26_1(int number){
     return mod(number,26);
 
 }
 
-char* vernam_chiffrer_1(char* texte,char* cle) {// chriffre le message grace a la cle
-    if(!vernam_apte(texte,cle)) return NULL;;
-    size_t len = strlen(cle);
-    char num_l=0;
-    char* result = (char*)malloc(sizeof(char)*len+1);
-    for(size_t i=0;i< len;i++){
-        if(texte[i]==' ' || cle[i]==' ') continue;
-        if(isNumber(texte[i]) && isNumber(cle[i])) result[i] = vernam_chiffrer_chiffre(texte[i],cle[i]);
-        else {
-            texte[i] = toupper(texte[i]); cle[i] = toupper(cle[i]);
-            num_l = ASCII_to_numLettre(texte[i]) + ASCII_to_numLettre(cle[i]);
-            result[i] = lettre_to_ascii(mod26(num_l))+1;
-        }
-    }
-    result[len] = '\0';
-    return result;
-}
-char* vernam_dechiffrer_1(char* texte,char* cle) {// dechriffre le message grace a la cle
-    if(!vernam_apte(texte,cle)) return NULL;
-
-    size_t len = strlen(cle);
-    char num_l=0;
-    char* result = (char*)malloc(sizeof(char)*len+1);
-    for(size_t i=0;i< len;i++){
-        if(texte[i]==' ' || cle[i]==' ') continue;
-        if(isNumber(texte[i]) && isNumber(cle[i])) result[i] = vernam_dechiffrer_chiffre(texte[i],cle[i]);
-        else{
-            texte[i] = toupper(texte[i]); cle[i] = toupper(cle[i]);
-            num_l = ASCII_to_numLettre(texte[i]) - ASCII_to_numLettre(cle[i]);
-            result[i] = lettre_to_ascii(mod26(num_l))+1;
-        }
-    }
-    result[len] = '\0';
-    return result;
-}
 
 char* vernam_xor(char* texte,char* cle) {// dechriffre le message grace a la cle
     if(!vernam_apte(texte,cle)) return NULL;

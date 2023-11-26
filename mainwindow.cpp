@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
     // avertissement
     ui->lab_avert->hide();
     //construction de l'historique
-    hisDial = new HistoryDialog(this);
+    hisDial = new HistoryDialog(this,ui->ptex_key);
     hisDial->setVisible(false);
     // signals
         // bouton et action chiffrement-dechiffrement
@@ -79,10 +79,8 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
     connect(ui->actionA_Propos,SIGNAL(triggered()),this,SLOT(a_propos()));
 
     // init Wizard
-    wizs = new WizardFichier();
-
-    connect(ui->actionChiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_Chif(),SLOT(exec()));
-    connect(ui->actionDechiffrer_un_fichier,SIGNAL(triggered()),wizs->getWiz_DeChif(),SLOT(exec()));
+    connect(ui->actionChiffrer_un_fichier,SIGNAL(triggered()),this,SLOT(launch_wiz_chiff()));
+    connect(ui->actionDechiffrer_un_fichier,SIGNAL(triggered()),this,SLOT(launch_wiz_deChiff()));
 
     //Brouiller
     connect(ui->but_Brouil,SIGNAL(clicked()),this,SLOT(toggleBrouil()));
@@ -92,13 +90,22 @@ MainWindow::MainWindow(QWidget *parent,QApplication *a,QTranslator *tfr,QTransla
     update_statusBar();
         //graphique
     initGraphic();
+    //
+    connect(ui->actionConsulter_notre_aide,SIGNAL(triggered()),this,SLOT(launch_help()));
+
+    //chargement configuration de l'utilisateur
+    settings = new QSettings(this);
+    initConfiguration();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
+void MainWindow::launch_help() {
+    HelpDialog helpDial(this);
+    helpDial.exec();
+}
 void MainWindow::limit_key() { // mettre en forme le champ de saisie de la cle
 
     QString text = ui->ptex_key->toPlainText();
@@ -125,16 +132,16 @@ void MainWindow::limit_key() { // mettre en forme le champ de saisie de la cle
     if( !text.isEmpty() && !textClear.isEmpty() && textClear.size()>=text.size() && textClear[text.size()-1].isNumber() && !text[text.size()-1].isNumber()){
         text.remove(text.size()-1,1);
         text.squeeze();
-        avert_green(text_char_number);
+        avert_green(tr("le prochain caractere doit etre un chiffre"));
     }
     else if( !text.isEmpty() && !textClear.isEmpty() && textClear.size()>=text.size() && textClear[text.size()-1].isLetter() && !text[text.size()-1].isLetter()){
         text.remove(text.size()-1,1);
         text.squeeze();
-        avert_green(text_char_letter);
+        avert_green(tr("le prochain caractere doit etre une lettre"));
     }
     else if(chaine_ok()) {
         if(correspond()) {
-            avert_green(text_key_correct);
+            avert_green(tr("la cle respecte les normes"));
         }
     }
     for(int i=4,len=text.size();i<len;i+=5){
@@ -250,8 +257,8 @@ void MainWindow::initIcon() { // initialiser les icones
 }
 
 void MainWindow::setGraphic_dechif() {
-    ui->lab_mes->setText(lab_mes_chif);
-    ui->lab_result->setText(lab_result_chif);
+    ui->lab_mes->setText(tr("Message Chiffre : "));
+    ui->lab_result->setText(tr("Resultat du Dechiffrement : "));
      ui->but_genKey->hide();
      ui->but_chiff->hide();
      ui->but_deChiff->show();
@@ -260,12 +267,14 @@ void MainWindow::setGraphic_dechif() {
     ui->rad_dechif->toggle();
     ui->rad_chif->setStyleSheet("");ui->rad_dechif->setStyleSheet("color:"+green+";border:1px solid "+green+";font-weight:bold");
     limit_mes();
-    ui->retranslateUi(this);
+    //ui->retranslateUi(this);
+    ui->but_Brouil->hide();
+    ui->ptex_traite->clear();
 }
 
 void MainWindow::setGraphic_chif() {
-    ui->lab_mes->setText(lab_mes_clear);
-    ui->lab_result->setText(lab_result_clear);
+    ui->lab_mes->setText(tr("Message Clair : "));
+    ui->lab_result->setText(tr("Resultat du Chiffrement : "));
     ui->but_genKey->show();
     ui->but_chiff->show();
     ui->but_deChiff->hide();
@@ -273,7 +282,9 @@ void MainWindow::setGraphic_chif() {
     ui->actionChiffrement->setIcon(QIcon(QPixmap("images/Close_oojs.png")));
     ui->rad_chif->toggle();
     ui->rad_chif->setStyleSheet("color:"+green+";border:1px solid "+green+";font-weight:bold");ui->rad_dechif->setStyleSheet("");
-    ui->retranslateUi(this);
+    //ui->retranslateUi(this);
+    ui->but_Brouil->show();
+    ui->ptex_traite->clear();
 }
 
 void MainWindow::tout_effacer() { // TOUT EFFACER
@@ -291,7 +302,8 @@ void MainWindow::avert_red(const QString &text) {
 }
 void MainWindow::avert_green(const QString &text) {
     if (!BrouilleurActive) {
-        ui->lab_avert->setStyleSheet("color: green");
+        if (!ui->actionDark_mode->isChecked()) ui->lab_avert->setStyleSheet("color: green");
+        else ui->lab_avert->setStyleSheet("color: lightgreen");
         ui->lab_avert->setText(text);
         ui->lab_avert->show();
     }
@@ -301,7 +313,7 @@ bool MainWindow::key_exist(QString &key) {
     history_read(hisDial->File_his(),hisDial->List_key());
     for(int i=0;i<hisDial->List_key()->size();i++) {
         if (key == hisDial->List_key()->at(i)){
-            avert_red(mes_error_already);
+            avert_red(tr("Attention ! cette clé a déjá été utilisé"));
             return true;
         }
     }
@@ -312,11 +324,11 @@ bool MainWindow::correspond() { // verifie que les champs respecte les contraint
     QString key=ui->ptex_key->toPlainText().simplified().remove(' ');
     for(int i=0;i<mes.size();i++){
         if((mes[i].isLetter() && !key[i].isLetter()) || (!mes[i].isLetter() && key[i].isLetter())) {
-            avert_red(text_uncorrespond);
+            avert_red(tr("verifier votre chaine\nque les lettres cryptent les lettres\net les chiffres, les chiffres"));
             return false;
         }
         if((mes[i].isNumber() && !key[i].isNumber()) || (!mes[i].isNumber() && key[i].isNumber())) {
-            avert_red(text_uncorrespond);
+            avert_red(tr("verifier votre chaine\nque les lettres cryptent les lettres\net les chiffres, les chiffres"));
             return false;
         }
     }
@@ -326,11 +338,11 @@ bool MainWindow::chaine_ok(){ // une autre couche pour vernam_apte()
     QString mes=ui->ptex_mes->toPlainText().simplified().remove(' ');
     QString key=ui->ptex_key->toPlainText().simplified().remove(' ');
     if(key.isEmpty() || mes.isEmpty()) {
-        avert_green(text_vide);
+        avert_green(tr("Taper du texte a chiffrer puis la cle"));
         return false;
     }
     if(mes.size() > key.size()) {
-        avert_red(mes_error_length);
+        avert_red(tr("la clé doivent avoir au moins le meme nombre de lettre que le message"));
         return false;
     }
         return true;
@@ -362,9 +374,7 @@ void MainWindow::crypter(){ // Crypter le message et afficher le resultat
     char* c;
 
     for(int i=0; i< aChiff.size();i++){
-        if (ui->actionA_1->isChecked())        c = vernam_chiffrer_1((QString() + aChiff.at(i)).toUtf8().data(),
-                                                                   (QString()+key.at(i)).toUtf8().data());
-        else c = vernam_chiffrer((QString() + aChiff.at(i)).toUtf8().data(),
+        c = vernam_chiffrer((QString() + aChiff.at(i)).toUtf8().data(),
                                  (QString()+key.at(i)).toUtf8().data());
 
         ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString::fromUtf8(c,sizeof(char)));
@@ -390,9 +400,7 @@ void MainWindow::decrypter(){ // DeCrypter le message et afficher le resultat
     char* c;
 
     for(int i=0; i< aDeChiff.size();i++){
-        if (ui->actionA_1->isChecked())         c = vernam_dechiffrer_1((QString() + aDeChiff.at(i)).toUtf8().data(),
-                                                                      (QString()+key.at(i)).toUtf8().data());
-        else c = vernam_dechiffrer((QString() + aDeChiff.at(i)).toUtf8().data(),
+        c = vernam_dechiffrer((QString() + aDeChiff.at(i)).toUtf8().data(),
                               (QString()+key.at(i)).toUtf8().data());
 
         ui->ptex_traite->setPlainText(ui->ptex_traite->toPlainText() + QString::fromUtf8(c,sizeof(char)));
@@ -442,22 +450,22 @@ void MainWindow::genCle(){
 }
 
 void MainWindow::montrer_avert_noSave() {
-    if (!ui->actionActiver_la_sauvegarde_des_Cl_s->isChecked())
-        QMessageBox::information(this,"sauvegarde des cles desactive",
-                                 "Vous ne pourrez plus savoir si vous avez deja utilise une cle !");
+    if (!ui->actionActiver_la_sauvegarde_des_Cl_s->isChecked()) {
+        QMessageBox::information(this,tr("sauvegarde des cles desactive"),
+                                 tr("Vous ne pourrez plus savoir si vous avez deja utilise une cle !"));
+    }
+    settings->setValue("history_save",ui->actionActiver_la_sauvegarde_des_Cl_s->isChecked());
 }
 
 void MainWindow::montrer_historique(){
     hisDial->fill();
     hisDial->setMaximumWidth(this->width());
-    hisDial->setVisible(true);
+    hisDial->showNow();
 }
 void MainWindow::toggle_lang(){
     if(ui->actionAnglais->isChecked()) {
         lang_fr();
     }else lang_en();
-    wizs->initWizard_chif();
-    wizs->initWizard_deChif();
 }
 void MainWindow::lang_fr() {
     ui->actionFrancais->setChecked(true);
@@ -467,6 +475,7 @@ void MainWindow::lang_fr() {
         ui->retranslateUi(this);
         qDebug("langue actuelle :fr_FR");
         ui->but_lang->setIcon(QIcon(QPixmap("images/french.png")));
+        settings->setValue("langue","fr_FR");
     }
 }
 
@@ -478,6 +487,7 @@ void MainWindow::lang_en() {
         ui->retranslateUi(this);
         qDebug("langue actuelle :en_EN");
         ui->but_lang->setIcon(QIcon(QPixmap("images/english.png")));
+        settings->setValue("langue","en_EN");
     }
 }
 
@@ -590,9 +600,11 @@ void MainWindow::dark_mode() {
     if (ui->actionDark_mode->isChecked()){
         this->setStyleSheet("background-color:#404142;color:white;");
         green = "lightgreen";
+        settings->setValue("dark_mode",true);
     }else {
         this->setStyleSheet("");
         green = "green";
+        settings->setValue("dark_mode",false);
     }
 
     ui->ptex_traite->setStyleSheet("border:2px dashed "+green);
@@ -618,10 +630,12 @@ void MainWindow::contacter_nous(){
     QMessageBox::information(this,tr("contact"),alert_contact);
 }
 void MainWindow::a_propos() {
-    QMessageBox about(QMessageBox::Information,tr("A propos"),tr("logiciel de chiffrement utilisant <br>le chiffre de Vernam sous licence libre<br><br>")
+    QMessageBox about(QMessageBox::Information,tr("A propos"),tr("Vernam 1.5 est un logiciel de chiffrement utilisant <br>le chiffre de Vernam sous licence gratuite.<br>Il utilise le Framework Qt.<br><br>")
                              +tr("Fait par :")+ " <br><B>BEMMO MBOBDA FULBERT ALEXANDRE<br>"
                              +"DNJOMOU YOMBA WILFRIED LOIC<br>"
+                             +"MAKAM TENEKEU VANELLE<br>"
                              +"TONBA DJIMGOU BRAILAIN LOIC<br>"
+                             +"WADJIE TOTSO EMMANUEL CHRISTIAN<br>"
                              +"</B>",QMessageBox::Ok,this);
     about.setIconPixmap(QPixmap("images/logo_long.jpg").scaled(150,84));
     about.exec();
@@ -692,7 +706,7 @@ void MainWindow::toggleBrouil() {
         ui->progBar_Brouilleur->show();
         if(ui->actionDark_mode->isChecked()) ui->lab_avert->setStyleSheet("color: lightblue");
         else ui->lab_avert->setStyleSheet("color: blue");
-        ui->lab_avert->setText(brouilleur_indication);
+        ui->lab_avert->setText(tr("\tBouger la souris pour generer la cle\n\tAppuyer sur echap pour Anuller"));
         ui->lab_avert->show();
     }
 }
@@ -702,4 +716,26 @@ void MainWindow::actCalculer_Hash() {
     if(filename.isEmpty()) return;
     QMessageBox::information(this,"hash Sha1",tr("fichier : ")+filename+"<br><br>Hash Sha-1 : <b>"+
                              WizardFichier::calcul_shasum(filename) +"</b>");
+}
+
+void MainWindow::launch_wiz_chiff() {
+    WizardFichier wf;
+    wf.getWiz_Chif()->exec();
+}
+void MainWindow::launch_wiz_deChiff(){
+    WizardFichier wf;
+    wf.getWiz_DeChif()->exec();
+}
+
+void MainWindow::montrer_avert_A1(bool active) {
+    settings->setValue("A_1",ui->actionA_1->isChecked());
+    if(active) {
+        QMessageBox::information(this,tr("A=1 active"),tr("Desormais, pour le chiffrement l'alphabet<br> sera compte a partir de un (01)"));
+    }
+}
+
+void MainWindow::initConfiguration() {
+    if (settings->value("langue","fr_FR").toString() == "en_EN") lang_en(); else lang_fr();
+    ui->actionDark_mode->setChecked(settings->value("dark_mode",false).toBool());dark_mode();
+    ui->actionActiver_la_sauvegarde_des_Cl_s->setChecked(settings->value("history_save",true).toBool());
 }

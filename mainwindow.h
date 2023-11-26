@@ -20,10 +20,12 @@ extern "C" {
 #include <QFileDialog>
 #include <QMovie>
 #include <QKeyEvent>
+#include <QSettings>
 
 
 #include <wizardfichier.h>
 #include <history.h>
+#include <helpdialog.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -46,6 +48,7 @@ public:
     void postTraitement();
     void update_statusBar();
     bool correspond();
+    void initConfiguration();
 
 
 public slots:
@@ -75,24 +78,16 @@ public slots:
 
     void toggleBrouil();
     void actCalculer_Hash();
+    void launch_wiz_chiff();
+    void launch_wiz_deChiff();
+    void montrer_avert_A1(bool active);
+    void launch_help();
+
 private:
     Ui::MainWindow *ui;
     HistoryDialog *hisDial;
-    const QString mes_error_length = tr("la clé doivent avoir au moins le meme nombre de lettre que le message");
-    const QString mes_error_already = tr("Attention ! cette clé a déjá été utilisé");
-    const QString lab_mes_clear = tr("Message Clair :");
-    const QString lab_mes_chif = tr("Message Chiffre :");
-    const QString lab_result_clear = tr("Resultat du Chiffrement :");
-    const QString lab_result_chif = tr("Resultat du Dechiffrement :");
-    //QString but_trait_chif = tr("DeChiffrer");
-    //QString but_trait_clear = tr("Chiffrer");
-    const QString text_char_letter = tr("le prochain caractere doit etre une lettre");
-    const QString text_char_number = tr("le prochain caractere doit etre un chiffre");
-    const QString text_key_correct = tr("la cle respecte les normes");
-    const QString text_uncorrespond = tr("verifier votre chaine\nque les lettres cryptent les lettres\net les chiffres, les chiffres");
-    const QString text_vide = tr("Taper du texte a chiffrer puis la cle");
+
     const QString alert_contact = tr("Contacter nous a l'adresse mail\nfbemmo.megasoft@gmail.com");
-    const QString brouilleur_indication = "\tBouger la souris pour generer la cle\n\tAppuyer sur echap pour Anuller";
     QString green = "green";
 
     QTranslator *translator_fr,*translator_en;
@@ -101,12 +96,14 @@ private:
     void initIcon();
     void initGraphic();
 
-    WizardFichier *wizs;
     bool BrouilleurActive = false;
     QString BrouilleurKey;
     int oldX=(QRandomGenerator::global()->generate()%320);
     int oldY=(QRandomGenerator::global()->generate()%240);
     int BrouilleurPos=0;
+    QString alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    QSettings *settings;
 
 protected :
     void closeEvent(QCloseEvent *event);
